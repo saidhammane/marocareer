@@ -2597,6 +2597,9 @@ body.mobile-nav-active #mobile-nav-toggle {
   color: #222;
   margin-bottom: 15px;
 }
+.btns{
+  padding-left: 100px !important;
+}
 
 .post-list .single-post .btns li {
   display: inline-block;
