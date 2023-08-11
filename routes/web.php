@@ -15,4 +15,4 @@ use App\Http\Controllers\CallCenterController;
 */
 
 
-Route::get('/', [CallCenterController::class, 'getHomeSixOffersHome']);
+Route::get('/', [CallCenterController::class, 'getHomeOffersData']);

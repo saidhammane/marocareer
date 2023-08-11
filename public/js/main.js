@@ -254,13 +254,13 @@ $(document).ready(function(){
             }
     }
 
+    $(document).ready(function(){
+      $("#searchBtn").click(function(){
+        var city = $("#cities").val();
+        if(city != "Toutes les villes"){
+          window.open('https://www.moncallcenter.ma/q-offres/?Ville=' + city, '_blank');
+        }
+      });
+    });
  
-
-
-
-
-
-
-
-
  });

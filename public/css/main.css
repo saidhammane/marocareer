@@ -2597,8 +2597,9 @@ body.mobile-nav-active #mobile-nav-toggle {
   color: #222;
   margin-bottom: 15px;
 }
-.btns{
-  padding-left: 100px !important;
+.blogs{
+  background-color: -webkit-linear-gradient(0deg, #bfacff 0%, #795fff 100%) !important;
+  background-image: url(img/blog3.png);
 }
 
 .post-list .single-post .btns li {
