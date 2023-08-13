@@ -103,11 +103,7 @@ class CallCenterController extends ScrapController
                 'jobType' => $Type->nodeValue,
             ];
         }
-
-
-      
-
-
+        
         $jobDataJson = json_encode($jobData);
         $jobDataJsonTop = json_encode($jobDataTop);
         $jobDataJsonCity = json_encode($jobDataCities);

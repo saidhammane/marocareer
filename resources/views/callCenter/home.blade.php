@@ -13,7 +13,7 @@
                     <p style="color: white">Le choix numéro un pour les emplois en centre d'appels au Maroc.</p>
                     <form action="search.html" class="serach-form-area">
                         <div class="row justify-content-center form-wrap">
-                            <div class="col-lg-9 form-cols">
+                            <div class="col-lg-5 form-cols">
                                 <div class="default-select" id="default-selects2">
                                     <select id="cities">
                                         <option>Toutes les villes</option>
@@ -29,6 +29,24 @@
                                     </select>
                                 </div>
                             </div>
+
+                            <div class="col-lg-5 form-cols">
+                                <div class="default-select" id="default-selects2">
+                                    <select id="type">
+                                        <option>Type</option>
+                                        @if (isset($jobDataJsonType))
+                                            @php $jobDataTypes = json_decode($jobDataJsonType, true); @endphp
+                                            @foreach ($jobDataTypes as $job)
+                                                @if ($job['jobType'] == 'Type')
+                                                    @continue
+                                                @endif
+                                                <option value="{{ $job['jobType'] }}">{{ $job['jobType'] }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                            </div>
+
                             <div class="col-lg-2 form-cols">
                                 <button type="button" class="btn btn-info" id="searchBtn">
                                     <span class="lnr lnr-magnifier"></span> Rechercher
@@ -87,7 +105,7 @@
                             </div>
                         @endforeach
                     @endif
-                    <a class="text-uppercase loadmore-btn mx-auto d-block" href="category.html">Toutes les offres</a>
+                    <a class="text-uppercase loadmore-btn mx-auto d-block" href="/">Toutes les offres</a>
                 </div>
                 <div class="col-lg-4 sidebar">
                     <div class="single-slidebar">
@@ -161,26 +179,20 @@
                         </ul>
                     </div>
                     <div class="single-slidebar">
-                        <h4>Carrer Advice Blog</h4>
+                        <h4>Actualités</h4>
                         <div class="blog-list">
                             <div class="single-blog " style="background:#000 url('img/blog1.jpg');">
-                                <a href="single.html">
+                                <a href="http://www.callinnov.com/la-concurrence-des-destinations-offshores-call-center/" target="_blank">
                                     <h4>La concurrence des destinations offshores call center</h4>
                                 </a>
                                 <div class="meta justify-content-between d-flex">
                                     <p>
                                         août 15, 2022
                                     </p>
-                                    <p>
-                                        <span class="lnr lnr-heart"></span>
-                                        15
-                                        <span class="lnr lnr-bubble"></span>
-                                        07
-                                    </p>
                                 </div>
                             </div>
                             <div class="single-blog " style="background:#000 url(img/blog2.jpg);">
-                                <a href="single.html">
+                                <a href="http://www.callinnov.com/telemarketing-evolution-dun-marche/" target="_blank">
                                     <h4>Home Audio Recording <br>
                                         For Everyone</h4>
                                 </a>
@@ -188,27 +200,15 @@
                                     <p>
                                         juin 23, 2022
                                     </p>
-                                    <p>
-                                        <span class="lnr lnr-heart"></span>
-                                        23
-                                        <span class="lnr lnr-bubble"></span>
-                                        06
-                                    </p>
                                 </div>
                             </div>
-                            <div class="single-blog blogs" style="">
-                                <a href="single.html">
+                            <div class="single-blog" style="background:#000 url(img/blog3.png);">
+                                <a href="http://www.callinnov.com/call-center/" target="_blank">
                                     <h4>Le Centre d’appel (Call center) s’agrandit</h4>
                                 </a>
                                 <div class="meta justify-content-between d-flex">
                                     <p>
                                         août 15, 2022
-                                    </p>
-                                    <p>
-                                        <span class="lnr lnr-heart"></span>
-                                        06
-                                        <span class="lnr lnr-bubble"></span>
-                                        02
                                     </p>
                                 </div>
                             </div>
@@ -219,68 +219,7 @@
         </div>
     </section>
     <!-- End post Area -->
-    <!-- Start callto-action Area -->
-    <section class="callto-action-area section-gap" id="join">
-        <div class="container">
-            <div class="row d-flex justify-content-center">
-                <div class="menu-content col-lg-9">
-                    <div class="title text-center">
-                        <h1 class="mb-10 text-white">Join us today without any hesitation</h1>
-                        <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing
-                            elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            Ut enim ad minim veniam, quis nostrud exercitation.</p>
-                        <a class="primary-btn" href="#">I am a Candidate</a>
-                        <a class="primary-btn" href="#">Request Free Demo</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End calto-action Area -->
-    <!-- Start download Area -->
-    <section class="download-area section-gap" id="app">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 download-left">
-                    <img class="img-fluid" src="img/d1.png" alt>
-                </div>
-                <div class="col-lg-6 download-right">
-                    <h1>Download the <br>
-                        Job Listing App Today!</h1>
-                    <p class="subs">
-                        It won’t be a bigger problem to find one video game lover in your
-                        neighbor. Since the introduction of Virtual Game, it has been achieving
-                        great heights so far as its popularity and technological advancement are
-                        concerned.
-                    </p>
-                    <div class="d-flex flex-row">
-                        <div class="buttons">
-                            <i class="fa fa-apple" aria-hidden="true"></i>
-                            <div class="desc">
-                                <a href="#">
-                                    <p>
-                                        <span>Available</span> <br>
-                                        on App Store
-                                    </p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="buttons">
-                            <i class="fa fa-android" aria-hidden="true"></i>
-                            <div class="desc">
-                                <a href="#">
-                                    <p>
-                                        <span>Available</span> <br>
-                                        on Play Store
-                                    </p>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
 
     @include('partials.footer')
 @endsection

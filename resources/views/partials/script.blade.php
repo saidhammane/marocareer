@@ -10,6 +10,7 @@
 <script src="{{ asset('js/parallax.min.js') }}"></script>
 <script src="js/mail-script.js"></script>
 <script src="{{ asset('js/main.js') }}"></script>
+<script src="{{ asset('js/sweetalert2.all.min.js') }}"></script>
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"

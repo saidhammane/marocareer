@@ -10,3 +10,4 @@
 <link rel="stylesheet" href="{{ asset('css/nice-select.css') }}">
 <link rel="stylesheet" href="{{ asset('css/owl.carousel.css') }}">
 <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+<link rel="stylesheet" href="{{ asset('css/sweetalert2.min.css') }}">

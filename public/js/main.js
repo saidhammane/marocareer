@@ -257,8 +257,20 @@ $(document).ready(function(){
     $(document).ready(function(){
       $("#searchBtn").click(function(){
         var city = $("#cities").val();
-        if(city != "Toutes les villes"){
-          window.open('https://www.moncallcenter.ma/q-offres/?Ville=' + city, '_blank');
+        var type = $("#type").val();
+        
+        const baseURL = 'https://www.moncallcenter.ma/q-offres/';
+
+        if (city === "Toutes les villes" && type === "Type") {
+            Swal.fire({
+                icon: 'error',
+                text: 'Veuillez sélectionner la ville ou le type d’emploi!',
+            });
+        } else {
+            let url = baseURL;
+            if (city !== "Toutes les villes") url += '?Ville=' + encodeURIComponent(city);
+            if (type !== "Type") url += (city !== "Toutes les villes" ? '&' : '?') + 'Type=' + encodeURIComponent(type);
+            window.open(url, '_blank');
         }
       });
     });
