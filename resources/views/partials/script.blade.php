@@ -1,3 +1,5 @@
+
+
 <script src="{{ asset('js/vendor/jquery-2.2.4.min.js') }}"></script>
 <script src="{{ asset('js/vendor/bootstrap.min.js') }}"></script>
 <script src="{{ asset('js/easing.min.js') }}"></script>
@@ -8,9 +10,13 @@
 <script src="{{ asset('js/jquery.sticky.js') }}"></script>
 <script src="{{ asset('js/jquery.nice-select.min.js') }}"></script>
 <script src="{{ asset('js/parallax.min.js') }}"></script>
-<script src="js/mail-script.js"></script>
 <script src="{{ asset('js/main.js') }}"></script>
 <script src="{{ asset('js/sweetalert2.all.min.js') }}"></script>
+
+
+
+
+
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
