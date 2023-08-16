@@ -10,6 +10,9 @@
         public function subscribe(Request $request){
             EmailSubscription::create($request->all());
 
-            return response(['success' => 'Employee created successfully.']);
+            // return response(['success' => 'Employee created successfully.']);
+
+            
+            return view('callCenter\thankyou');
         }
     }

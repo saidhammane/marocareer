@@ -149,7 +149,8 @@
                                 @foreach ($jobDataTop as $job)
                                     <div class="single-rated">
                                         <img class="img-fluid" src="{{ $job['ImgLink'] }}" loading="lazy"
-                                            alt="{{ $job['jobTitle'] }}" title="{{ $job['jobTitle'] }}" width="100" height="100"style="border-radius:15px;">
+                                            alt="{{ $job['jobTitle'] }}" title="{{ $job['jobTitle'] }}" width="100"
+                                            height="100"style="border-radius:15px;">
                                         <a href="{{ $job['jobUrl'] }}">
                                             <h4>{{ $job['jobTitle'] }}</h4>
                                         </a>
@@ -182,7 +183,8 @@
                         <h4>Actualités</h4>
                         <div class="blog-list">
                             <div class="single-blog " style="background:#000 url('img/blog1.jpg');">
-                                <a href="http://www.callinnov.com/la-concurrence-des-destinations-offshores-call-center/" target="_blank">
+                                <a href="http://www.callinnov.com/la-concurrence-des-destinations-offshores-call-center/"
+                                    target="_blank">
                                     <h4>La concurrence des destinations offshores call center</h4>
                                 </a>
                                 <div class="meta justify-content-between d-flex">
@@ -222,4 +224,6 @@
 
 
     @include('partials.footer')
+
+    
 @endsection

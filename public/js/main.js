@@ -359,27 +359,5 @@ $(document).ready(function () {
         });
     });
 
-    $(document).ready(function () {
-        // When the submit button is clicked
-        $("#submitButton").click(function (e) {
-            e.preventDefault(); // Prevent the default form submission
-
-            var formData = $("#subscribeForm").serialize();
-                            formData += '&_token=' + $('meta[name="csrf-token"]').attr('content');
-
-            $.ajax({
-                type: "POST",
-                url: $("#subscribeForm").attr("action"), // Your form action URL
-                data: formData,
-                success: function (response) {
-                    // Handle success response, e.g., show a success message
-                    $(".info").html("Subscribed successfully!");
-                },
-                error: function (xhr, status, error) {
-                    // Handle error response, e.g., show an error message
-                    $(".info").html("An error occurred while subscribing.");
-                },
-            });
-        });
-    });
+    
 });

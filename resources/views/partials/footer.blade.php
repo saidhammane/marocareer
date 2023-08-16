@@ -13,7 +13,7 @@
                      <p>Vous pouvez nous faire confiance. Nous n’envoyons que des offres promotionnelles, pas un seul
                          spam.</p>
                      <div id="mc_embed_signup">
-                         <form id="subscribeForm" class="form-inline">
+                         <form id="subscribeForm" class="form-inline" action="{{ url('/storeEmail') }}">
                              @csrf
                              <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                              <div class="form-group row" style="width: 100%">
@@ -23,7 +23,7 @@
                                          onblur="this.placeholder = 'Entre Votre Email '" required type="email">
                                  </div>
                                  <div class="col-lg-4 col-md-12">
-                                     <button class="nw-btn primary-btn submit-form" type="button"
+                                     <button class="nw-btn primary-btn submit-form" type="submit"
                                          id="submitButton">Abonner<span class="lnr lnr-arrow-right"></span></button>
                                  </div>
                              </div>

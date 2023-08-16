@@ -17,8 +17,8 @@ use App\Http\Controllers\EmailSubscriptionController;
 
 
 Route::get('/', [CallCenterController::class, 'getHomeOffersData']);
-// Route::get('/storeEmail', [EmailSubscriptionController::class, 'subscribe'])->name('subscribe');
-Route::post('/storeEmail', [EmailSubscriptionController::class, 'subscribe'])->name('subscribe');
+Route::get('/storeEmail', [EmailSubscriptionController::class, 'subscribe'])->name('subscribe');
+// Route::post('/storeEmail', [EmailSubscriptionController::class, 'subscribe'])->name('subscribe');
 
 // // Route::post('/subscribe', 'SubscribeEmailController@subscribe')->name('subscribe');
 
