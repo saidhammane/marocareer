@@ -13,7 +13,7 @@
                     <li><a href="#">Category</a></li>
                     <li><a href="/quiz">Quiz</a></li>
                     <li><a href="#">Blog</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="/contact">Contact</a></li>
                 </ul>
             </nav><!-- #nav-menu-container -->
         </div>

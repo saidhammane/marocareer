@@ -11,4 +11,14 @@
             EmailSubscription::create($request->all());
             return view('callCenter\thankyou');
         }
+
+        public function SendMail(Request $request){
+            
+        }
+
+
+        public function contact(Request $request){
+            
+            return view('contact');
+        }
     }
