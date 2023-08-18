@@ -8,12 +8,10 @@
             </div>
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
-                    <li class="menu-active"><a href="/">Home</a></li>
-                    <li><a href="/offres-emploi/">Centres d'appels</a></li>
-                    <li><a href="#">Category</a></li>
-                    <li><a href="/quiz">Quiz</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="/contact">Contact</a></li>
+                    <li class="menu-active"><a href="/" id="currentNavHome">Home</a></li>
+                    <li><a href="/quiz" id="currentNavQuiz">Quiz</a></li>
+                    <li><a href="/contact" id="currentNavContact">Contact</a></li>
+                    <li><a href="/callCenter" id="currentNavCallCenter">Centres d'appels</a></li>
                 </ul>
             </nav><!-- #nav-menu-container -->
         </div>

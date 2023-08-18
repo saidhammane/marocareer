@@ -115,4 +115,18 @@ class CallCenterController extends ScrapController
 
         // return $jobDataBlog;
     }
+    public function callCenter(){
+        return view('callCenter.callcenters');
+
+    }
+    public function getCallcenterData(){
+        $callcenterData = [];
+
+        $client = new Client();
+        $dom = new DOMDocument();
+        @$dom->loadHTML($client->get('https://www.moncallcenter.ma/centres-appels.php')->getBody()->getContents());
+        $xpath = new DOMXPath($dom);
+        
+        $jobTitleLink = $xpath->query("//h2/a[@class=\"offreUrl\"]");
+    }
 }

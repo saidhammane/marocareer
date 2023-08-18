@@ -2088,6 +2088,16 @@ h6 {
     outline: none;
 }
 
+.navbarCurrent{
+    border-radius: 15px !important;
+    background-color: rgb(48, 138, 166) !important;
+}
+
+.nav-menu a:hover {
+    border-radius: 15px;
+    background-color: rgb(48, 138, 166);
+}
+
 .nav-menu > li {
     margin-left: 10px;
 }

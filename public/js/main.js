@@ -359,5 +359,25 @@ $(document).ready(function () {
         });
     });
 
+    var currentUrl = window.location.href.split('/')[window.location.href.split('/').length - 1];
+
+    console.log(currentUrl);    
     
+    var currentNavLinkContact = document.getElementById('currentNavContact');
+    var currentNavLinkHome = document.getElementById('currentNavHome');
+    var currentNavLinkQuiz = document.getElementById('currentNavQuiz');
+    switch (currentUrl) {
+        case "contact":
+            currentNavLinkContact.classList.add('navbarCurrent');
+            break; 
+        case "":
+            currentNavLinkHome.classList.add('navbarCurrent');
+            break; 
+        case "quiz":
+            currentNavLinkQuiz.classList.add('navbarCurrent');
+            break; 
+    }
+
+    
+
 });

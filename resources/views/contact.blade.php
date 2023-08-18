@@ -25,7 +25,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <form class="form-area " id="contactForm" {{ route('contact.send') }} method="post"
+                    <form class="form-area " id="contactForm" method="post"
                         class="contact-form text-right">
                         <div class="row">
                             <div class="col-lg-12 form-group">
