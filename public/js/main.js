@@ -366,6 +366,7 @@ $(document).ready(function () {
     var currentNavLinkContact = document.getElementById('currentNavContact');
     var currentNavLinkHome = document.getElementById('currentNavHome');
     var currentNavLinkQuiz = document.getElementById('currentNavQuiz');
+    var currentNavLinkCallCenter = document.getElementById('currentNavCallCenter');
     switch (currentUrl) {
         case "contact":
             currentNavLinkContact.classList.add('navbarCurrent');
@@ -375,6 +376,9 @@ $(document).ready(function () {
             break; 
         case "quiz":
             currentNavLinkQuiz.classList.add('navbarCurrent');
+            break; 
+        case "centre-appelle":
+            currentNavLinkCallCenter.classList.add('navbarCurrent');
             break; 
     }
 

@@ -11,7 +11,7 @@
                     <li class="menu-active"><a href="/" id="currentNavHome">Home</a></li>
                     <li><a href="/quiz" id="currentNavQuiz">Quiz</a></li>
                     <li><a href="/contact" id="currentNavContact">Contact</a></li>
-                    <li><a href="/callCenter" id="currentNavCallCenter">Centres d'appels</a></li>
+                    <li><a href="/centre-appelle" id="currentNavCallCenter">Centres d'appels</a></li>
                 </ul>
             </nav><!-- #nav-menu-container -->
         </div>

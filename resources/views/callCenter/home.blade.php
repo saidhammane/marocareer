@@ -11,7 +11,7 @@
                 <div class="banner-content col-lg-12">
                     <h1 class="text-white">Votre carrière est notre priorité</h1>
                     <p style="color: white">Le choix numéro un pour les emplois en centre d'appels au Maroc.</p>
-                    <form action="search.html" class="serach-form-area">
+                    <form class="serach-form-area">
                         <div class="row justify-content-center form-wrap">
                             <div class="col-lg-5 form-cols">
                                 <div class="default-select" id="default-selects2">
@@ -150,7 +150,7 @@
                                     <div class="single-rated">
                                         <img class="img-fluid" src="{{ $job['ImgLink'] }}" loading="lazy"
                                             alt="{{ $job['jobTitle'] }}" title="{{ $job['jobTitle'] }}" width="100"
-                                            height="100"style="border-radius:15px;">
+                                            height="100"style="border-radius:15px;" >
                                         <a href="{{ $job['jobUrl'] }}">
                                             <h4>{{ $job['jobTitle'] }}</h4>
                                         </a>

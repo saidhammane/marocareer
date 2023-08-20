@@ -18,7 +18,7 @@ use App\Http\Controllers\MailController;
 
 
 Route::get('/', [CallCenterController::class, 'getHomeOffersData']);
-Route::get('/callcenter', [CallCenterController::class, 'callCenter'])->name('callCenter');
+Route::get('/centre-appelle', [CallCenterController::class, 'callCenter'])->name('callCenter');
 Route::get('/storeEmail', [EmailSubscriptionController::class, 'subscribe'])->name('subscribe');
 Route::get('/contact', [EmailSubscriptionController::class, 'contact'])->name('contact');
 Route::get('/sendMail', [EmailSubscriptionController::class, 'sendMail'])->name('sendMail');
