@@ -334,10 +334,16 @@ $(document).ready(function () {
     }
 
     $(document).ready(function () {
-        $("#searchBtn").click(function () {
+        function openSearchUrl(baseURL, city, type, cityParameter) {
+            let url = baseURL;
+            if (city !== "Villes" && city !== "Toutes les villes") url += "?" + cityParameter + "=" + encodeURIComponent(city);
+            if (type !== "Type") url += (city ? "&" : "?") + "Type=" + encodeURIComponent(type);
+            window.open(url, "_blank");
+        }
+
+        $("#searchBtnHome").click(function () {
             var city = $("#cities").val();
             var type = $("#type").val();
-
             const baseURL = "https://www.moncallcenter.ma/q-offres/";
 
             if (city === "Toutes les villes" && type === "Type") {
@@ -345,43 +351,33 @@ $(document).ready(function () {
                     icon: "error",
                     text: "Veuillez sélectionner la ville ou le type d’emploi!",
                 });
-            } else {
-                let url = baseURL;
-                if (city !== "Toutes les villes")
-                    url += "?Ville=" + encodeURIComponent(city);
-                if (type !== "Type")
-                    url +=
-                        (city !== "Toutes les villes" ? "&" : "?") +
-                        "Type=" +
-                        encodeURIComponent(type);
-                window.open(url, "_blank");
-            }
+            } else openSearchUrl(baseURL, city, type, "Ville");
+        });
+
+        $("#searchBtnCallCnter").click(function () {
+            var city = $("#citiesCallCnter").val();
+            var type = $("#typeCallCnter").val();
+            const baseURL = "https://www.moncallcenter.ma/centres-appels.php/";
+
+            if (city === "Villes" && type === "Type") {
+                Swal.fire({
+                    icon: "error",
+                    text: "Veuillez sélectionner la ville ou le type d’emploi!",
+                });
+            } else openSearchUrl(baseURL, city, type, "ville");
         });
     });
 
-    var currentUrl = window.location.href.split('/')[window.location.href.split('/').length - 1];
+    var urlSegments = window.location.href.split("/");
+    var currentUrlSegment = urlSegments[urlSegments.length - 1];
 
-    console.log(currentUrl);    
-    
-    var currentNavLinkContact = document.getElementById('currentNavContact');
-    var currentNavLinkHome = document.getElementById('currentNavHome');
-    var currentNavLinkQuiz = document.getElementById('currentNavQuiz');
-    var currentNavLinkCallCenter = document.getElementById('currentNavCallCenter');
-    switch (currentUrl) {
-        case "contact":
-            currentNavLinkContact.classList.add('navbarCurrent');
-            break; 
-        case "":
-            currentNavLinkHome.classList.add('navbarCurrent');
-            break; 
-        case "quiz":
-            currentNavLinkQuiz.classList.add('navbarCurrent');
-            break; 
-        case "centre-appelle":
-            currentNavLinkCallCenter.classList.add('navbarCurrent');
-            break; 
-    }
+    var navLinkIds = {
+        contact: "currentNavContact",
+        "": "currentNavHome",
+        quiz: "currentNavQuiz",
+        "centre-appelle": "currentNavCallCenter",
+    };
 
-    
-
+    var currentNavLink = document.getElementById(navLinkIds[currentUrlSegment]);
+    if (currentNavLink) currentNavLink.classList.add("navbarCurrent");
 });

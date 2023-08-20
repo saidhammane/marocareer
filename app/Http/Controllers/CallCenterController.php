@@ -116,7 +116,37 @@ class CallCenterController extends ScrapController
         // return $jobDataBlog;
     }
     public function callCenter(){
-        return view('callCenter.callcenters');
+        
+        $jobDataCities = [];
+        $jobDataTypes = [];
+
+        $client = new Client();
+        $dom = new DOMDocument();
+        @$dom->loadHTML($client->get('https://www.moncallcenter.ma/centres-appels.php')->getBody()->getContents());
+        $xpath = new DOMXPath($dom);
+        
+        $jobCity = $xpath->query("//*[@id='ville']/option");
+
+        for ($i = 0; $i < $jobCity->length; $i++) {
+            $City = $jobCity[$i];
+            $jobDataCities[] = [
+                'jobCity' => $City->nodeValue,
+            ];
+        }
+
+        $jobType = $xpath->query("//*[@id=\"Type\"]/option");
+
+        for ($i = 0; $i < $jobType->length; $i++) {
+            $Type = $jobType[$i];
+            $jobDataTypes[] = [
+                'jobType' => $Type->nodeValue,
+            ];
+        }
+        
+        $jobDataJsonCity = json_encode($jobDataCities);
+        $jobDataJsonType = json_encode($jobDataTypes);
+        return view('callCenter.callcenters', ['jobDataJsonCity' => $jobDataJsonCity, 'jobDataJsonType' => $jobDataJsonType]);
+        // return $jobDataTypes;
 
     }
     public function getCallcenterData(){
@@ -127,6 +157,6 @@ class CallCenterController extends ScrapController
         @$dom->loadHTML($client->get('https://www.moncallcenter.ma/centres-appels.php')->getBody()->getContents());
         $xpath = new DOMXPath($dom);
         
-        $jobTitleLink = $xpath->query("//h2/a[@class=\"offreUrl\"]");
+        $jobType = $xpath->query("//*[@id=\"Type\"]/option");
     }
 }

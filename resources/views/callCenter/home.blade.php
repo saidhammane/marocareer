@@ -48,7 +48,7 @@
                             </div>
 
                             <div class="col-lg-2 form-cols">
-                                <button type="button" class="btn btn-info" id="searchBtn">
+                                <button type="button" class="btn btn-info" id="searchBtnHome">
                                     <span class="lnr lnr-magnifier"></span> Rechercher
                                 </button>
                             </div>
@@ -188,9 +188,7 @@
                                     <h4>La concurrence des destinations offshores call center</h4>
                                 </a>
                                 <div class="meta justify-content-between d-flex">
-                                    <p>
-                                        août 15, 2022
-                                    </p>
+                                    <p>août 15, 2022</p>
                                 </div>
                             </div>
                             <div class="single-blog " style="background:#000 url(img/blog2.jpg);">
@@ -199,9 +197,7 @@
                                         For Everyone</h4>
                                 </a>
                                 <div class="meta justify-content-between d-flex">
-                                    <p>
-                                        juin 23, 2022
-                                    </p>
+                                    <p>juin 23, 2022</p>
                                 </div>
                             </div>
                             <div class="single-blog" style="background:#000 url(img/blog3.png);">
@@ -209,9 +205,7 @@
                                     <h4>Le Centre d’appel (Call center) s’agrandit</h4>
                                 </a>
                                 <div class="meta justify-content-between d-flex">
-                                    <p>
-                                        août 15, 2022
-                                    </p>
+                                    <p>août 15, 2022</p>
                                 </div>
                             </div>
                         </div>
