@@ -117,6 +117,7 @@ class CallCenterController extends ScrapController
     }
     public function callCenter(){
         
+        $callCenterData = [];
         $jobDataCities = [];
         $jobDataTypes = [];
 
@@ -126,6 +127,28 @@ class CallCenterController extends ScrapController
         $xpath = new DOMXPath($dom);
         
         $jobCity = $xpath->query("//*[@id='ville']/option");
+        $jobType = $xpath->query("//*[@id=\"Type\"]/option");
+        $callCenterImgLink = $xpath->query("//*[@id='centreLeftN']/div[1]/div/div/div[1]/a/img");
+        $callCenterName = $xpath->query("//*[@id='centreLeftN']/div[1]/div/div/center/label/b/h2/a");
+        $callCenterDescription = $xpath->query("//*[@id='centreLeftN']/div[1]/div/div/p");
+        $callCenterOffres = $xpath->query("//*//*[@id='centreLeftN']/div[1]/div/div/div[2]/a[1]");
+        $callCenterUrl = $xpath->query("//*[@id='centreLeftN']/div[1]/div/div/div[1]/a");
+
+        for ($i = 0; $i < $callCenterImgLink->length; $i++) {
+            $imgLink = $callCenterImgLink[$i];
+            $name = $callCenterName[$i];
+            $description = $callCenterDescription[$i];
+            $offres = $callCenterOffres[$i];
+            $url = $callCenterUrl[$i];
+            $callCenterData[] = [
+                'name' => $name->nodeValue,
+                'description' => $description->nodeValue,
+                'offres' => $offres->nodeValue,
+                'offresUrl' => 'https://www.moncallcenter.ma/' . $offres->getAttribute('href'),
+                'url' => 'https://www.moncallcenter.ma/' . $url->getAttribute('href'),
+                'ImgLink' => 'https://www.moncallcenter.ma/' . $imgLink->getAttribute('src'),
+            ];
+        }
 
         for ($i = 0; $i < $jobCity->length; $i++) {
             $City = $jobCity[$i];
@@ -133,9 +156,6 @@ class CallCenterController extends ScrapController
                 'jobCity' => $City->nodeValue,
             ];
         }
-
-        $jobType = $xpath->query("//*[@id=\"Type\"]/option");
-
         for ($i = 0; $i < $jobType->length; $i++) {
             $Type = $jobType[$i];
             $jobDataTypes[] = [
@@ -145,8 +165,11 @@ class CallCenterController extends ScrapController
         
         $jobDataJsonCity = json_encode($jobDataCities);
         $jobDataJsonType = json_encode($jobDataTypes);
-        return view('callCenter.callcenters', ['jobDataJsonCity' => $jobDataJsonCity, 'jobDataJsonType' => $jobDataJsonType]);
-        // return $jobDataTypes;
+        $callCenterDataJson = json_encode($callCenterData);
+        return view('callCenter.callcenters', ['jobDataJsonCity' => $jobDataJsonCity, 
+                                            'jobDataJsonType' => $jobDataJsonType,
+                                            'callCenterDataJson' => $callCenterDataJson]);
+        // return $callCenterData;
 
     }
     public function getCallcenterData(){
