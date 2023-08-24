@@ -15,7 +15,6 @@ class CallCenterController extends ScrapController
     public function getHomeOffersData($page = null)
     {
 
-
         $jobData = [];
         $jobDataTop = [];
         $jobDataCities = [];
@@ -44,7 +43,6 @@ class CallCenterController extends ScrapController
                 }
             }
         }
-
 
         $url = 'https://www.moncallcenter.ma/offres-emploi/' . $page . '/';
 
@@ -172,14 +170,45 @@ class CallCenterController extends ScrapController
         // return $callCenterData;
 
     }
-    public function getCallcenterData(){
-        $callcenterData = [];
+    public function quiz(){
+        
+        $quizData = [];
 
         $client = new Client();
         $dom = new DOMDocument();
-        @$dom->loadHTML($client->get('https://www.moncallcenter.ma/centres-appels.php')->getBody()->getContents());
+        @$dom->loadHTML($client->get('https://www.moncallcenter.ma/tests/')->getBody()->getContents());
         $xpath = new DOMXPath($dom);
+
+        $quizImgUrl = $xpath->query("//*[@id='statuts']/div/div/div/div/a[1]/img");
+        $quizTitle = $xpath->query("//*[@id='statuts']/div/div/div/div/a[2]/h2");
+        $quizQD = $xpath->query("//*[@id='statuts']/div/div/div/div/div[1]/span/text()[1]");
+        $quizNombreParticipants = $xpath->query("//*[@id='statuts']/div/div/div/div/div[1]/span/b[1]");
+        $quizNoteMoyenne = $xpath->query("//*[@id='statuts']/div/div/div/div/div[1]/span/b[2]");
+        $quizUrl = $xpath->query("//*[@id='statuts']/div/div/div/div/div[2]/a");
         
-        $jobType = $xpath->query("//*[@id=\"Type\"]/option");
+
+        for ($i = 0; $i < $quizImgUrl->length; $i++) {
+            $imgUrl = $quizImgUrl[$i];
+            $title = $quizTitle[$i];
+            $qd = $quizQD[$i];
+            $NombreParticipants = $quizNombreParticipants[$i];
+            $NoteMoyenne = $quizNoteMoyenne[$i];
+            $url = $quizUrl[$i];
+            $quizData[] = [
+                'title' => $title->nodeValue,
+                'qd' => $qd->nodeValue,
+                'NombreParticipants' => $NombreParticipants->nodeValue,
+                'url' => 'https://www.moncallcenter.ma/' . $url->getAttribute('href'),
+                'NoteMoyenne' => $NoteMoyenne->nodeValue,
+                'imgUrl' => $imgUrl->getAttribute('src'),
+            ];
+            
+        };
+
+        
+        $quizDataJson = json_encode($quizData);
+
+        return view('callCenter.quiz', ['quizDataJson' => $quizDataJson]);
+        // return $quizDataJson;
     }
 }
