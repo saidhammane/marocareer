@@ -29,20 +29,20 @@ class MailSender extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Mail Sender Test',
+            subject: 'MaroCareer Contact Form Submission',
         );
+    }
+
+    public function build()
+    {
+        return $this->view('mail.sendMail')
+            ->subject('New Contact Form Submission');
     }
 
     /**
      * Get the message content definition.
      */
-    public function content(): Content
-    {
-        return new Content(
-            view: 'mail.sendMail',
-        );
-    }
-
+    
     /**
      * Get the attachments for the message.
      *

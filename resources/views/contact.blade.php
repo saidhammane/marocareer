@@ -25,8 +25,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <form class="form-area " id="contactForm" method="post"
-                        class="contact-form text-right">
+                    <form class="form-area" id="contactForm" method="get"
+                        class="contact-form text-right" action="send-mail">
                         <div class="row">
                             <div class="col-lg-12 form-group">
                                 <input name="name" placeholder="Entrer votre nom" onfocus="this.placeholder = ''"
@@ -34,7 +34,6 @@
                                     required="" type="text">
 
                                 <input name="email" placeholder="Entrer votre addresse email"
-                                    pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$"
                                     onfocus="this.placeholder = ''" onblur="this.placeholder = 'Entrer votre addresse email'"
                                     class="common-input mb-20 form-control" required="" type="email">
 

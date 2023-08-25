@@ -15,7 +15,7 @@
                 </div>
                 <div class="text-center">
                     <h1>Merci !</h1>
-                    {{-- <p>We've send the link to your inbox. Lorem ipsum dolor sit,lorem lorem </p> --}}
+                    <p>Nous vous contacterons dès que possible </p>
                     <a class="btn btn-outline-success mt-10" href="/">Retour à l'accueil</a>
                 </div>
             </div>

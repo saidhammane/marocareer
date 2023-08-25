@@ -22,6 +22,6 @@ Route::get('/centre-appelle', [CallCenterController::class, 'callCenter'])->name
 Route::get('/quiz', [CallCenterController::class, 'quiz'])->name('quiz');
 Route::get('/storeEmail', [EmailSubscriptionController::class, 'subscribe'])->name('subscribe');
 Route::get('/contact', [EmailSubscriptionController::class, 'contact'])->name('contact');
-Route::get('send-mail', [MailController::class, 'index']);
+Route::get('send-mail', [MailController::class, 'submitForm']);
 
 
