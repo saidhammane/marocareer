@@ -31,6 +31,5 @@ class MailController extends Controller
         Mail::to('said.hammane1@gmail.com')->send(new MailSender($mailData));
            
         return view('callCenter.thankyou');
-        // return back()->with('success', 'Message sent successfully.');
     }
 }
