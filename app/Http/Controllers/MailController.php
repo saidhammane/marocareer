@@ -10,11 +10,6 @@ class MailController extends Controller
 {
     public function submitForm(Request $request)
     {
-        // $mailData = [
-        //     'title' => 'Mail from Marocareer.com',
-        //     'body' => 'This is for testing email using smtp.'
-        // ];
-
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
