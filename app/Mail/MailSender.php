@@ -14,13 +14,13 @@ class MailSender extends Mailable
     use Queueable, SerializesModels;
 
 
-    public $name;
+    public $mailData;
     /**
      * Create a new message instance.
      */
-    public function __construct($name)
+    public function __construct($mailData)
     {
-        $this->name = $name;
+        $this->mailData = $mailData;
     }
 
     /**
@@ -29,7 +29,7 @@ class MailSender extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Mail Sender',
+            subject: 'Mail Sender Test',
         );
     }
 
