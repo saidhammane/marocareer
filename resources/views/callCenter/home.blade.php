@@ -10,7 +10,7 @@
             <div class="row fullscreen d-flex align-items-center justify-content-center">
                 <div class="banner-content col-lg-12">
                     <h1 class="text-white">Votre carrière est notre priorité</h1>
-                    <p style="color: white">Le choix numéro un pour les emplois en centre d'appels au Maroc.</p>
+                    <p class="text-white">Le choix numéro un pour les emplois en centre d'appels au Maroc.</p>
                     <form class="serach-form-area">
                         <div class="row justify-content-center form-wrap">
                             <div class="col-lg-5 form-cols">
@@ -20,9 +20,7 @@
                                         @if (isset($jobDataJsonCity))
                                             @php $jobDataCities = json_decode($jobDataJsonCity, true); @endphp
                                             @foreach ($jobDataCities as $job)
-                                                @if ($job['jobCity'] == 'Ville')
-                                                    @continue
-                                                @endif
+                                                @if ($job['jobCity'] == 'Ville') @continue @endif
                                                 <option value="{{ $job['jobCity'] }}">{{ $job['jobCity'] }}</option>
                                             @endforeach
                                         @endif
@@ -37,9 +35,7 @@
                                         @if (isset($jobDataJsonType))
                                             @php $jobDataTypes = json_decode($jobDataJsonType, true); @endphp
                                             @foreach ($jobDataTypes as $job)
-                                                @if ($job['jobType'] == 'Type')
-                                                    @continue
-                                                @endif
+                                                @if ($job['jobType'] == 'Type') @continue @endif
                                                 <option value="{{ $job['jobType'] }}">{{ $job['jobType'] }}</option>
                                             @endforeach
                                         @endif

@@ -91,7 +91,7 @@ class CallCenterController extends ScrapController
         $jobDataJsonTop = json_encode($jobDataTop);
         $jobDataJsonCity = json_encode($jobDataCities);
         $jobDataJsonType = json_encode($jobDataTypes);
-        return view('callCenter\home', ['jobDataJson' => $jobDataJson, 
+        return view('callCenter.home', ['jobDataJson' => $jobDataJson, 
                         'jobDataJsonTop' => $jobDataJsonTop,
                         'jobDataJsonCity' => $jobDataJsonCity,
                         'jobDataJsonType' => $jobDataJsonType]);
