@@ -150,7 +150,7 @@
                                         <a href="{{ $job['jobUrl'] }}">
                                             <h4>{{ $job['jobTitle'] }}</h4>
                                         </a>
-                                        <a href="{{ $job['jobUrl'] }}" class="btns text-uppercase">POSTULER</a>
+                                        <a href="{{ $job['jobUrl'] }}" class="btns text-uppercase" target="_blank">POSTULER</a>
                                     </div>
                                 @endforeach
                             @endif
