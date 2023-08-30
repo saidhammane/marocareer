@@ -108,31 +108,31 @@
                         <h4>Centres d’appels par ville</h4>
                         <ul class="cat-list">
                             <li><a class="justify-content-between d-flex"
-                                    href="https://www.moncallcenter.ma/q-offres/?Ville=Casablanca">
+                                    href="https://www.moncallcenter.ma/q-offres/?Ville=Casablanca" target="_blank">
                                     <p>Casablanca</p>
                                 </a></li>
                             <li><a class="justify-content-between d-flex"
-                                    href="https://www.moncallcenter.ma/q-offres/?Ville=Rabat">
+                                    href="https://www.moncallcenter.ma/q-offres/?Ville=Rabat"target="_blank">
                                     <p>Rabat</p>
                                 </a></li>
                             <li><a class="justify-content-between d-flex"
-                                    href="https://www.moncallcenter.ma/q-offres/?Ville=Tanger">
+                                    href="https://www.moncallcenter.ma/q-offres/?Ville=Tanger"target="_blank">
                                     <p>Tanger</p>
                                 </a></li>
                             <li><a class="justify-content-between d-flex"
-                                    href="https://www.moncallcenter.ma/q-offres/?Ville=Kenitra">
+                                    href="https://www.moncallcenter.ma/q-offres/?Ville=Kenitra"target="_blank">
                                     <p>Kenitra</p>
                                 </a></li>
                             <li><a class="justify-content-between d-flex"
-                                    href="https://www.moncallcenter.ma/q-offres/?Ville=Mohammedia">
+                                    href="https://www.moncallcenter.ma/q-offres/?Ville=Mohammedia"target="_blank">
                                     <p>Mohammedia</p>
                                 </a></li>
                             <li><a class="justify-content-between d-flex"
-                                    href="https://www.moncallcenter.ma/q-offres/?Ville=Marrakech">
+                                    href="https://www.moncallcenter.ma/q-offres/?Ville=Marrakech"target="_blank">
                                     <p>Marrakech</p>
                                 </a></li>
                             <li><a class="justify-content-between d-flex"
-                                    href="https://www.moncallcenter.ma/q-offres/?Ville=Meknes">
+                                    href="https://www.moncallcenter.ma/q-offres/?Ville=Meknes"target="_blank">
                                     <p>Meknes</p>
                                 </a></li>
                         </ul>

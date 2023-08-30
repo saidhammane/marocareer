@@ -9,7 +9,7 @@
     {
         public function subscribe(Request $request){
             EmailSubscription::create($request->all());
-            return view('callCenter\thankyou');
+            return view('callCenter.thankyou');
         }
 
         public function SendMail(Request $request){
