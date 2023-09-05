@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
     <div class="container">
         {{-- <div class="row justify-content-center">
             <div class="col-md-8">
@@ -43,40 +42,8 @@
         </table>
     </div>
     
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+    
     <script>
-        $(document).ready(function() {
-            var csrfToken = $('meta[name="csrf-token"]').attr('content');
-
-            $('.delete-button').click(function() {
-                var id = $(this).data('id');
-                $.ajax({
-                    url: '/delete/email/' + id,
-                    type: 'DELETE',
-                    dataType: 'json',
-                    headers: {
-                        'X-CSRF-TOKEN': csrfToken
-                    },
-                    success: function(response) {
-                        $('#row-' + id).remove();
-                        Swal.fire({
-                            icon: 'success',
-                            title: response.message,
-                            showConfirmButton: false,
-                            timer: 2000
-                        })
-                    },
-                    error: function(error) {
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Oops...',
-                            showConfirmButton: false,
-                            timer: 2000
-                        })
-                    }
-                });
-            });
-        });
+        
     </script>
 @endsection
