@@ -22,6 +22,7 @@ Route::get('Ville/{city}', [CallCenterController::class, 'getOffersData']);
 Route::get('Type/{type}', [CallCenterController::class, 'getOffersDataType']);
 Route::get('Filter/{city}/{type}', [CallCenterController::class, 'getOffersData']);
 Route::get('/centre-appelle', [CallCenterController::class, 'callCenter'])->name('callCenter');
+Route::get('/centre-appelle/Ville/{city}', [CallCenterController::class, 'callCenterFilter'])->name('callCenterFilter');
 Route::get('/quiz', [CallCenterController::class, 'quiz'])->name('quiz');
 Route::get('/storeEmail', [EmailSubscriptionController::class, 'subscribe'])->name('subscribe');
 Route::get('/contact', [EmailSubscriptionController::class, 'contact'])->name('contact');

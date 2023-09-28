@@ -219,6 +219,60 @@ class CallCenterController extends ScrapController
             'jobDataJsonType' => $jobDataJsonType
         ]);
     }
+    
+    
+    public function callCenterFilter($city = null){
+        
+        $callCenterData = [];
+        $jobDataCities = [];
+        
+        $client = new Client();
+        $dom = new DOMDocument();
+        @$dom->loadHTML($client->get('https://www.moncallcenter.ma/centres-appels.php?ville='.$city)->getBody()->getContents());
+        $xpath = new DOMXPath($dom);
+
+        
+        $jobCity = $xpath->query("//*[@id='ville']/option");
+        $callCenterImgLink = $xpath->query("//*[@id='centreLeftN']/div[1]/div/div/div[1]/a/img");
+        $callCenterName = $xpath->query("//*[@id='centreLeftN']/div[1]/div/div/center/label/b/h2/a");
+        $callCenterDescription = $xpath->query("//*[@id='centreLeftN']/div[1]/div/div/p");
+        $callCenterOffres = $xpath->query("//*//*[@id='centreLeftN']/div[1]/div/div/div[2]/a[1]");
+        $callCenterUrl = $xpath->query("//*[@id='centreLeftN']/div[1]/div/div/div[1]/a");
+
+        for ($i = 0; $i < $callCenterImgLink->length; $i++) {
+            $imgLink = $callCenterImgLink[$i];
+            $name = $callCenterName[$i];
+            $description = $callCenterDescription[$i];
+            $offres = $callCenterOffres[$i];
+            $url = $callCenterUrl[$i];
+            $callCenterData[] = [
+                'name' => $name->nodeValue,
+                'description' => $description->nodeValue,
+                'offres' => $offres->nodeValue,
+                'offresUrl' => 'https://www.moncallcenter.ma/' . $offres->getAttribute('href'),
+                'url' => 'https://www.moncallcenter.ma/' . $url->getAttribute('href'),
+                'ImgLink' => 'https://www.moncallcenter.ma/' . $imgLink->getAttribute('src'),
+            ];
+        }
+
+        for ($i = 0; $i < $jobCity->length; $i++) {
+            $City = $jobCity[$i];
+            $jobDataCities[] = [
+                'jobCity' => $City->nodeValue,
+            ];
+        }
+        
+        $jobDataJsonCity = json_encode($jobDataCities);
+        $callCenterDataJson = json_encode($callCenterData);
+        // return $callCenterDataJson;
+
+        return view('callCenter.callcentersFiltred', [
+            'callCenterDataJson' => $callCenterDataJson,
+            'jobDataJsonCity' => $jobDataJsonCity,
+            'city' => $city,
+        ]);
+
+    }
     public function callCenter()
     {
         $callCenterData = [];

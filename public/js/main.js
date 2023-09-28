@@ -353,6 +353,18 @@ $(document).ready(function () {
         //         });
         //     } else openSearchUrl(baseURL, city, type, "Ville");
         // });
+        // $("#searchBtnCallCnter").click(function () {
+        //     var city = $("#citiesCallCnter").val();
+        //     var type = $("#typeCallCnter").val();
+        //     const baseURL = "https://www.moncallcenter.ma/centres-appels.php/";
+
+        //     if (city === "Villes" && type === "Type") {
+        //         Swal.fire({
+        //             icon: "error",
+        //             text: "Veuillez sélectionner la ville ou le type d’emploi!",
+        //         });
+        //     } else openSearchUrl(baseURL, city, type, "ville");
+        // });
 
         $("#searchBtnHome").click(function () {
             var city = $("#cities").val();
@@ -378,15 +390,18 @@ $(document).ready(function () {
         $("#searchBtnCallCnter").click(function () {
             var city = $("#citiesCallCnter").val();
             var type = $("#typeCallCnter").val();
-            const baseURL = "https://www.moncallcenter.ma/centres-appels.php/";
 
-            if (city === "Villes" && type === "Type") {
+            if (city !== "Villes"){
+                window.location.href = "/centre-appelle/Ville/"+city;
+            }else{
                 Swal.fire({
                     icon: "error",
-                    text: "Veuillez sélectionner la ville ou le type d’emploi!",
+                    text: "Veuillez sélectionner la ville de centre d'appelle!",
                 });
-            } else openSearchUrl(baseURL, city, type, "ville");
+            }
         });
+
+        
     });
 
     var urlSegments = window.location.href.split("/");

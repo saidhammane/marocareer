@@ -39,6 +39,7 @@
     </section>
     <section>
         <div class="container mt-20 mb-20">
+            <div class="alert alert-primary h4" role="alert">Liste des centres d'appels - {{ $city }}</div>
             <div class="row">
                 @if (isset($callCenterDataJson))
                     @php $callCenterData = json_decode($callCenterDataJson, true); @endphp

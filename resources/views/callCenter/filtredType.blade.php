@@ -75,8 +75,8 @@
         <div class="container">
             <div class="row justify-content-center d-flex">
                 <div class="col-lg-8 post-list">
-                    @if (isset($jobDataJson) )
-                        @if(count((array)$jobDataJson) > 0)
+                    @if (isset($jobDataJson))
+                        @if (count((array) $jobDataJson) > 0)
                             @php $jobData = json_decode($jobDataJson, true); @endphp
                             @foreach ($jobData as $job)
                                 <div class="single-post d-flex flex-row">
@@ -102,7 +102,47 @@
                                     </div>
                                 </div>
                             @endforeach
-                            @else  No jobs in {{ $type }}
+                        @else
+                            {{-- <div class="alert alert-warning" role="alert">
+                                <strong>Oups !</strong> Il semble qu'il n'y ait actuellement aucune offre d'emploi dans
+                                cette zone.
+                            </div>
+                            <br><br><br>
+                            <div class="row">
+                                <div class="col-md">
+                                    <div class="🤚">
+                                        <div class="👉"></div>
+                                        <div class="👉"></div>
+                                        <div class="👉"></div>
+                                        <div class="👉"></div>
+                                        <div class="🌴"></div>
+                                        <div class="👍"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md">
+                                    <div class="🤚">
+                                        <div class="👉"></div>
+                                        <div class="👉"></div>
+                                        <div class="👉"></div>
+                                        <div class="👉"></div>
+                                        <div class="🌴"></div>
+                                        <div class="👍"></div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md">
+                                    <div class="🤚">
+                                        <div class="👉"></div>
+                                        <div class="👉"></div>
+                                        <div class="👉"></div>
+                                        <div class="👉"></div>
+                                        <div class="🌴"></div>
+                                        <div class="👍"></div>
+                                    </div>
+
+                                </div>
+                            </div> --}}
+                            <h1>no one</h1>
                         @endif
                     @endif
                 </div>
