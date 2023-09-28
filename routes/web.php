@@ -18,6 +18,9 @@ use App\Http\Controllers\MailController;
 
 
 Route::get('/', [CallCenterController::class, 'getHomeOffersData']);
+Route::get('Ville/{city}', [CallCenterController::class, 'getOffersData']);
+Route::get('Type/{type}', [CallCenterController::class, 'getOffersDataType']);
+Route::get('Filter/{city}/{type}', [CallCenterController::class, 'getOffersData']);
 Route::get('/centre-appelle', [CallCenterController::class, 'callCenter'])->name('callCenter');
 Route::get('/quiz', [CallCenterController::class, 'quiz'])->name('quiz');
 Route::get('/storeEmail', [EmailSubscriptionController::class, 'subscribe'])->name('subscribe');

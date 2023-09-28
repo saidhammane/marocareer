@@ -341,17 +341,38 @@ $(document).ready(function () {
             window.open(url, "_blank");
         }
 
+        // $("#searchBtnHome").click(function () {
+        //     var city = $("#cities").val();
+        //     var type = $("#type").val();
+        //     const baseURL = "https://www.moncallcenter.ma/q-offres/";
+
+        //     if (city === "Toutes les villes" && type === "Type") {
+        //         Swal.fire({
+        //             icon: "error",
+        //             text: "Veuillez sélectionner la ville ou le type d’emploi!",
+        //         });
+        //     } else openSearchUrl(baseURL, city, type, "Ville");
+        // });
+
         $("#searchBtnHome").click(function () {
             var city = $("#cities").val();
             var type = $("#type").val();
-            const baseURL = "https://www.moncallcenter.ma/q-offres/";
-
             if (city === "Toutes les villes" && type === "Type") {
                 Swal.fire({
                     icon: "error",
                     text: "Veuillez sélectionner la ville ou le type d’emploi!",
                 });
-            } else openSearchUrl(baseURL, city, type, "Ville");
+            }else{
+                if (city !== "Toutes les villes" && type !== "Type"){
+                    // console.log(url+city+"/"+type);
+                    // window.open(url+city+"/"+type);
+                    window.location.href = "/Filter/"+city+"/"+type;
+                }
+                else if(city !== "Toutes les villes"){
+                    window.location.href = "/Ville/"+city;
+                }
+                else window.location.href = "/Type/"+type;
+            }
         });
 
         $("#searchBtnCallCnter").click(function () {

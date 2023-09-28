@@ -2,14 +2,13 @@
 
 @section('content')
     @include('partials.navbar')
-    <!-- start banner Area -->
+
     <section class="banner-area relative" id="home">
         <div class="overlay overlay-bg"></div>
         <div class="container">
             <div class="row fullscreen d-flex align-items-center justify-content-center">
                 <div class="banner-content col-lg-12">
-                    <h1 class="text-white">Votre carrière est notre priorité</h1>
-                    <p class="text-white">Le choix numéro un pour les emplois en centre d'appels au Maroc.</p>
+                    <h1 class="text-white">Emplois de type {{ $type }}</h1>
                     <form class="serach-form-area">
                         <div class="row justify-content-center form-wrap">
                             <div class="col-lg-5 form-cols">
@@ -57,7 +56,6 @@
             </div>
         </div>
     </section>
-    <!-- End banner Area -->
 
     <!-- Start feature-cat Area -->
     <section class="feature-cat-area pt-100" id="category">
@@ -65,7 +63,7 @@
             <div class="row d-flex justify-content-center">
                 <div class="menu-content pb-60 col-lg-10">
                     <div class="title text-center">
-                        <h2 class="mb-10">Nos offres récentes</h2>
+                        <h2 class="mb-10">Nos offres</h2>
                     </div>
                 </div>
             </div>
@@ -77,32 +75,35 @@
         <div class="container">
             <div class="row justify-content-center d-flex">
                 <div class="col-lg-8 post-list">
-                    @if (isset($jobDataJson))
-                        @php $jobData = json_decode($jobDataJson, true); @endphp
-                        @foreach ($jobData as $job)
-                            <div class="single-post d-flex flex-row">
-                                <div class="thumb" style="padding: 24px;">
-                                    <img src="{{ $job['ImgLink'] }}" alt="{{ $job['jobTitle'] }}"
-                                        title="{{ $job['jobTitle'] }}" loading="lazy" height="100" width="100"
-                                        style="border-radius:15px;">
-                                </div>
-                                <div class="job-container">
-                                    <div class="details">
-                                        <div class="title ">
-                                            <div class="titles">
-                                                <a href="{{ $job['jobUrl'] }}">
-                                                    <h4>{{ $job['jobTitle'] }}</h4>
-                                                </a>
-                                                <h6>{{ $job['jobDate'] }}</h6>
+                    @if (isset($jobDataJson) )
+                        @if(count((array)$jobDataJson) > 0)
+                            @php $jobData = json_decode($jobDataJson, true); @endphp
+                            @foreach ($jobData as $job)
+                                <div class="single-post d-flex flex-row">
+                                    <div class="thumb" style="padding: 24px;">
+                                        <img src="{{ $job['jobImgLink'] }}" alt="{{ $job['jobTitle'] }}"
+                                            title="{{ $job['jobTitle'] }}" loading="lazy" height="100" width="100"
+                                            style="border-radius:15px;">
+                                    </div>
+                                    <div class="job-container">
+                                        <div class="details">
+                                            <div class="title ">
+                                                <div class="titles">
+                                                    <a href="{{ $job['jobUrl'] }}">
+                                                        <h4>{{ $job['jobTitle'] }}</h4>
+                                                    </a>
+                                                    <h6>{{ $job['jobMetaData'] }}</h6>
+                                                </div>
+                                                <ul class="btns">
+                                                    <li><a href="{{ $job['jobUrl'] }}" target="_blank">Postuler</a></li>
+                                                </ul>
                                             </div>
-                                            <ul class="btns">
-                                                <li><a href="{{ $job['jobUrl'] }}" target="_blank">Postuler</a></li>
-                                            </ul>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        @endforeach
+                            @endforeach
+                            @else  No jobs in {{ $type }}
+                        @endif
                     @endif
                 </div>
                 <div class="col-lg-4 sidebar">
@@ -131,26 +132,6 @@
                                     <p>Meknes</p>
                                 </a></li>
                         </ul>
-                    </div>
-                    <div class="single-slidebar">
-                        <h4>Offres de la semaine</h4>
-                        <div class="active-relatedjob-carusel">
-                            @if (isset($jobDataJsonTop))
-                                @php $jobDataTop = json_decode($jobDataJsonTop, true); @endphp
-                                @foreach ($jobDataTop as $job)
-                                    <div class="single-rated">
-                                        <img class="img-fluid" src="{{ $job['ImgLink'] }}" loading="lazy"
-                                            alt="{{ $job['jobTitle'] }}" title="{{ $job['jobTitle'] }}" width="100"
-                                            height="100"style="border-radius:15px;">
-                                        <a href="{{ $job['jobUrl'] }}">
-                                            <h4>{{ $job['jobTitle'] }}</h4>
-                                        </a>
-                                        <a href="{{ $job['jobUrl'] }}" class="btns text-uppercase"
-                                            target="_blank">POSTULER</a>
-                                    </div>
-                                @endforeach
-                            @endif
-                        </div>
                     </div>
                     <div class="single-slidebar">
                         <h4>Emplois par type</h4>
@@ -207,8 +188,5 @@
     </section>
     <!-- End post Area -->
 
-
     @include('partials.footer')
-
-
 @endsection

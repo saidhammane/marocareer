@@ -2,16 +2,137 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use DOMDocument;
 use DOMXPath;
-use Illuminate\Http\JsonResponse;
 use GuzzleHttp\Client;
 
 class CallCenterController extends ScrapController
 {
+    public function getOffersDataType($type = null)
+    {
+        $jobData = [];
+        $jobDataCities = [];
+        $jobDataTypes = [];
 
+        $client = new Client();
+        $dom = new DOMDocument();
+        @$dom->loadHTML($client->get('https://www.moncallcenter.ma/q-offres/?Type=' . $type)->getBody()->getContents());
+        $xpath = new DOMXPath($dom);
 
+        $jobTitleLink = $xpath->query("//h2/a[@class=\"offreUrl\"]");
+        $jobDescription = $xpath->query("//div/div/p");
+        $jobImgLink = $xpath->query("//div/div/a[@class=\"offreUrl\"]/img");
+        $jobMetaData = $xpath->query("//*[@id=\"statuts\"]/div/div[1]/div[2]/div[1]/span");
+
+        for ($i = 0; $i < $jobTitleLink->length; $i++) {
+
+            $title = $jobTitleLink[$i];
+            $description = $jobDescription[$i];
+            $img = $jobImgLink[$i];
+            $metaData = $jobMetaData[$i];
+
+            if ($title && $description) {
+                $jobData[] = [
+                    'jobTitle' => $title->nodeValue,
+                    'jobUrl' => 'https://www.moncallcenter.ma/' . $title->getAttribute('href'),
+                    'jobImgLink' => 'https://www.moncallcenter.ma/' . $img->getAttribute('src'),
+                    'jobDescription' => $description->nodeValue,
+                    'jobMetaData' => $metaData->nodeValue,
+                ];
+            }
+        }
+
+        $jobCity = $xpath->query("//*[@id=\"Ville\"]/option");
+        for ($i = 0; $i < $jobCity->length; $i++) {
+            $City = $jobCity[$i];
+            $jobDataCities[] = [
+                'jobCity' => $City->nodeValue,
+            ];
+        }
+        $jobType = $xpath->query("//*[@id=\"Type\"]/option");
+        for ($i = 0; $i < $jobType->length; $i++) {
+            $Type = $jobType[$i];
+            $jobDataTypes[] = [
+                'jobType' => $Type->nodeValue,
+            ];
+        }
+
+        $jobDataJson = json_encode($jobData);
+        $jobDataJsonCity = json_encode($jobDataCities);
+        $jobDataJsonType = json_encode($jobDataTypes);
+
+        // return $jobDataJson;
+        return view('callCenter.filtredType', [
+            'jobDataJson' => $jobDataJson,
+            'type' => $type,
+            'jobDataJsonCity' => $jobDataJsonCity,
+            'jobDataJsonType' => $jobDataJsonType
+        ]);
+    }
+    public function getOffersData($city = null, $type = null)
+    {
+
+        $jobData = [];
+        $jobDataCities = [];
+        $jobDataTypes = [];
+
+        $client = new Client();
+        $dom = new DOMDocument();
+        @$dom->loadHTML($client->get('https://www.moncallcenter.ma/q-offres/?Ville=' . $city . '&Type=' . $type)->getBody()->getContents());
+        $xpath = new DOMXPath($dom);
+
+        $jobTitleLink = $xpath->query("//h2/a[@class=\"offreUrl\"]");
+        $jobDescription = $xpath->query("//div/div/p");
+        $jobImgLink = $xpath->query("//div/div/a[@class=\"offreUrl\"]/img");
+        $jobMetaData = $xpath->query("//*[@id=\"statuts\"]/div/div[1]/div[2]/div[1]/span");
+
+        for ($i = 0; $i < $jobTitleLink->length; $i++) {
+
+            $title = $jobTitleLink[$i];
+            $description = $jobDescription[$i];
+            $img = $jobImgLink[$i];
+            $metaData = $jobMetaData[$i];
+
+            if ($title && $description) {
+                $jobData[] = [
+                    'jobTitle' => $title->nodeValue,
+                    'jobUrl' => 'https://www.moncallcenter.ma/' . $title->getAttribute('href'),
+                    'jobImgLink' => 'https://www.moncallcenter.ma/' . $img->getAttribute('src'),
+                    'jobDescription' => $description->nodeValue,
+                    'jobMetaData' => $metaData->nodeValue,
+                ];
+            }
+        }
+
+        $jobCity = $xpath->query("//*[@id=\"Ville\"]/option");
+        for ($i = 0; $i < $jobCity->length; $i++) {
+            $City = $jobCity[$i];
+            $jobDataCities[] = [
+                'jobCity' => $City->nodeValue,
+            ];
+        }
+        $jobType = $xpath->query("//*[@id=\"Type\"]/option");
+        for ($i = 0; $i < $jobType->length; $i++) {
+            $Type = $jobType[$i];
+            $jobDataTypes[] = [
+                'jobType' => $Type->nodeValue,
+            ];
+        }
+
+        $jobDataJson = json_encode($jobData);
+        $jobDataJsonCity = json_encode($jobDataCities);
+        $jobDataJsonType = json_encode($jobDataTypes);
+
+        // return $jobDataJson;
+        return view('callCenter.flitred', [
+            'jobDataJson' => $jobDataJson,
+            'city' => $city,
+            'type' => $type,
+            'jobDataJsonCity' => $jobDataJsonCity,
+            'jobDataJsonType' => $jobDataJsonType
+        ]);
+
+    }
     public function getHomeOffersData($page = null)
     {
         $jobData = [];
@@ -91,12 +212,15 @@ class CallCenterController extends ScrapController
         $jobDataJsonTop = json_encode($jobDataTop);
         $jobDataJsonCity = json_encode($jobDataCities);
         $jobDataJsonType = json_encode($jobDataTypes);
-        return view('callCenter.home', ['jobDataJson' => $jobDataJson, 
-                        'jobDataJsonTop' => $jobDataJsonTop,
-                        'jobDataJsonCity' => $jobDataJsonCity,
-                        'jobDataJsonType' => $jobDataJsonType]);
+        return view('callCenter.home', [
+            'jobDataJson' => $jobDataJson,
+            'jobDataJsonTop' => $jobDataJsonTop,
+            'jobDataJsonCity' => $jobDataJsonCity,
+            'jobDataJsonType' => $jobDataJsonType
+        ]);
     }
-    public function callCenter(){
+    public function callCenter()
+    {
         $callCenterData = [];
         $jobDataCities = [];
         $jobDataTypes = [];
@@ -141,12 +265,15 @@ class CallCenterController extends ScrapController
         $jobDataJsonCity = json_encode($jobDataCities);
         $jobDataJsonType = json_encode($jobDataTypes);
         $callCenterDataJson = json_encode($callCenterData);
-        return view('callCenter.callcenters', ['jobDataJsonCity' => $jobDataJsonCity, 
-                                            'jobDataJsonType' => $jobDataJsonType,
-                                            'callCenterDataJson' => $callCenterDataJson]);
+        return view('callCenter.callcenters', [
+            'jobDataJsonCity' => $jobDataJsonCity,
+            'jobDataJsonType' => $jobDataJsonType,
+            'callCenterDataJson' => $callCenterDataJson
+        ]);
 
     }
-    public function quiz(){
+    public function quiz()
+    {
         $quizData = [];
         $callCenterRecrut = [];
         $client = new Client();
@@ -176,19 +303,20 @@ class CallCenterController extends ScrapController
                 'NoteMoyenne' => $NoteMoyenne->nodeValue,
                 'imgUrl' => $imgUrl->getAttribute('src'),
             ];
-            
-        };
+
+        }
+        ;
         for ($i = 0; $i < 6; $i++) {
             $imgUrl = $callCenterRecrutImgUrl[$i];
             $url = $callCenterRecrutUrl[$i];
             $callCenterRecrut[] = [
-                'imgUrl' => 'https://www.moncallcenter.ma/' .$imgUrl->getAttribute('src'),
+                'imgUrl' => 'https://www.moncallcenter.ma/' . $imgUrl->getAttribute('src'),
                 'title' => $imgUrl->getAttribute('title'),
-                'url' => 'https://www.moncallcenter.ma/' .$url->getAttribute('href'),
+                'url' => 'https://www.moncallcenter.ma/' . $url->getAttribute('href'),
             ];
         }
         $quizDataJson = json_encode($quizData);
         $callCenterRecrutJson = json_encode($callCenterRecrut);
-        return view('callCenter.quiz', ['quizDataJson' => $quizDataJson, 'callCenterRecrutJson'=> $callCenterRecrutJson]);
+        return view('callCenter.quiz', ['quizDataJson' => $quizDataJson, 'callCenterRecrutJson' => $callCenterRecrutJson]);
     }
 }
