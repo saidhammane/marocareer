@@ -8,13 +8,15 @@ use GuzzleHttp\Client;
 
 class CallCenterController extends ScrapController
 {
-
-    public function jobApply($url = null){
-        
+    public function jobApply($url = null) {
         
         $jobData = [];
         $jobDataCities = [];
         $jobDataTypes = [];
+
+        $currentURL = "http" . (($_SERVER['SERVER_PORT'] == 443) ? "s" : "") . "://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+        $lastSegment = basename(parse_url($currentURL, PHP_URL_PATH));
+
 
         $client = new Client();
         $dom = new DOMDocument();
@@ -24,21 +26,37 @@ class CallCenterController extends ScrapController
         $titleJob = $xpath->query("//*[@id='statuts']/div/div/div[2]/h1");
         $descriptifPosteJob = $xpath->query("/html/body/div[2]/div/div[2]/div[3]/div/div/p");
         $profilRechercheJob = $xpath->query("/html/body/div[2]/div/div[2]/div[4]/div/div/p");
-        $avantagesSociauxEtAutresJob = $xpath->query("/html/body/div[2]/div/div[2]/div[5]");
+
+
+
+
+
+
+        $callcenterNameJob = $xpath->query("/html/body/div[2]/div/div[2]/div[1]/div/div/div/div[2]/h2/a");
+        $callcenterImgJob = $xpath->query("/html/body/div[2]/div/div[2]/div[1]/div/div/div/div[1]/a/img");
+        $metaDataJob = $xpath->query("/html/body/div[2]/div/div[2]/div[1]/div/div/div/div[2]/span[1]");
+        $languageJob = $xpath->query("/html/body/div[2]/div/div[2]/div[1]/div/div/div/div[2]/span[2]");
 
         for ($i = 0; $i < $descriptifPosteJob->length; $i++) {
 
             $title = $titleJob[$i];
             $descriptifPoste = $descriptifPosteJob[$i];
             $profilRecherche = $profilRechercheJob[$i];
-            $avantagesSociauxEtAutres = $avantagesSociauxEtAutresJob[$i];
+            $callcenterName = $callcenterNameJob[$i];
+            $callcenterImg = $callcenterImgJob[$i];
+            $metaData = $metaDataJob[$i];
+            $language = $languageJob[$i];
 
             if ($descriptifPoste) {
                 $jobData[] = [
                     'titleJob' => $title->nodeValue,
                     'descriptifPosteJob' => $descriptifPoste->nodeValue,
                     'profilRechercheJob' => $profilRecherche->nodeValue,
-                    'avantagesSociauxEtAutresJob' => $avantagesSociauxEtAutres->nodeValue,
+                    'callcenterNameJob' => $callcenterName->nodeValue,
+                    'callcenterNameJobUrl' => 'https://www.moncallcenter.ma/' . $callcenterName->getAttribute('href'),
+                    'callcenterImgJob' => 'https://www.moncallcenter.ma/' . $callcenterImg->getAttribute('src'),
+                    'metaDataJob' => $metaData->nodeValue,
+                    'languageJob' => $language->nodeValue,
                 ];
             }
         }
@@ -63,9 +81,10 @@ class CallCenterController extends ScrapController
         $jobDataJsonCity = json_encode($jobDataCities);
         $jobDataJsonType = json_encode($jobDataTypes);
         
-        // return $jobDataJson;
+        // return $lastSegment;
 
         return view('callCenter.jobsApply', [
+            'lastSegment' => $lastSegment,
             'jobDataJson' => $jobDataJson,
             'type' => 'jobApply',
             'jobDataJsonCity' => $jobDataJsonCity,
@@ -201,6 +220,11 @@ class CallCenterController extends ScrapController
     }
     public function getHomeOffersData($page = null)
     {
+
+        
+        $currentURL = "http" . (($_SERVER['SERVER_PORT'] == 443) ? "s" : "") . "://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+        $lastSegment = basename(parse_url($currentURL, PHP_URL_PATH));
+
         $jobData = [];
         $jobDataTop = [];
         $jobDataCities = [];
@@ -279,12 +303,15 @@ class CallCenterController extends ScrapController
         $jobDataJsonCity = json_encode($jobDataCities);
         $jobDataJsonType = json_encode($jobDataTypes);
         return view('callCenter.home', [
+            'lastSegment' => $lastSegment,
             'type' => 'home',
             'jobDataJson' => $jobDataJson,
             'jobDataJsonTop' => $jobDataJsonTop,
             'jobDataJsonCity' => $jobDataJsonCity,
             'jobDataJsonType' => $jobDataJsonType
         ]);
+
+        // return $jobDataJson;
     }
     
     

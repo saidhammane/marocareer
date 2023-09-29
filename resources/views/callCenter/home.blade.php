@@ -40,8 +40,13 @@
                                                 </a>
                                                 <h6>{{ $job['jobDate'] }}</h6>
                                             </div>
+                                            @php
+                                                $url = $job['jobUrl']; 
+                                                $urlSegments = explode('/', parse_url($url, PHP_URL_PATH));
+                                                $lastSegmentUrl = end($urlSegments);
+                                            @endphp
                                             <ul class="btns">
-                                                <li><a href="{{ $job['jobUrl'] }}" target="_blank">Postuler</a></li>
+                                                <li><a href="/application/{{ $lastSegmentUrl }}">Postuler</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -87,11 +92,10 @@
                                         <img class="img-fluid" src="{{ $job['ImgLink'] }}" loading="lazy"
                                             alt="{{ $job['jobTitle'] }}" title="{{ $job['jobTitle'] }}" width="100"
                                             height="100"style="border-radius:15px;">
-                                        <a href="{{ $job['jobUrl'] }}">
+                                        <a href="/application/{{ $lastSegmentUrl }}">
                                             <h4>{{ $job['jobTitle'] }}</h4>
                                         </a>
-                                        <a href="{{ $job['jobUrl'] }}" class="btns text-uppercase"
-                                            target="_blank">POSTULER</a>
+                                        <a href="/application/{{ $lastSegmentUrl }}" class="btns text-uppercase">POSTULER</a>
                                     </div>
                                 @endforeach
                             @endif
