@@ -8,6 +8,71 @@ use GuzzleHttp\Client;
 
 class CallCenterController extends ScrapController
 {
+
+    public function jobApply($url = null){
+        
+        
+        $jobData = [];
+        $jobDataCities = [];
+        $jobDataTypes = [];
+
+        $client = new Client();
+        $dom = new DOMDocument();
+        @$dom->loadHTML($client->get("https://www.moncallcenter.ma//offre-emploi/".$url)->getBody()->getContents());
+        $xpath = new DOMXPath($dom);
+
+        $titleJob = $xpath->query("//*[@id='statuts']/div/div/div[2]/h1");
+        $descriptifPosteJob = $xpath->query("/html/body/div[2]/div/div[2]/div[3]/div/div/p");
+        $profilRechercheJob = $xpath->query("/html/body/div[2]/div/div[2]/div[4]/div/div/p");
+        $avantagesSociauxEtAutresJob = $xpath->query("/html/body/div[2]/div/div[2]/div[5]");
+
+        for ($i = 0; $i < $descriptifPosteJob->length; $i++) {
+
+            $title = $titleJob[$i];
+            $descriptifPoste = $descriptifPosteJob[$i];
+            $profilRecherche = $profilRechercheJob[$i];
+            $avantagesSociauxEtAutres = $avantagesSociauxEtAutresJob[$i];
+
+            if ($descriptifPoste) {
+                $jobData[] = [
+                    'titleJob' => $title->nodeValue,
+                    'descriptifPosteJob' => $descriptifPoste->nodeValue,
+                    'profilRechercheJob' => $profilRecherche->nodeValue,
+                    'avantagesSociauxEtAutresJob' => $avantagesSociauxEtAutres->nodeValue,
+                ];
+            }
+        }
+
+
+        $jobCity = $xpath->query("//*[@id=\"Ville\"]/option");
+        for ($i = 0; $i < $jobCity->length; $i++) {
+            $City = $jobCity[$i];
+            $jobDataCities[] = [
+                'jobCity' => $City->nodeValue,
+            ];
+        }
+        $jobType = $xpath->query("//*[@id=\"Type\"]/option");
+        for ($i = 0; $i < $jobType->length; $i++) {
+            $Type = $jobType[$i];
+            $jobDataTypes[] = [
+                'jobType' => $Type->nodeValue,
+            ];
+        }
+        
+        $jobDataJson = json_encode($jobData);
+        $jobDataJsonCity = json_encode($jobDataCities);
+        $jobDataJsonType = json_encode($jobDataTypes);
+        
+        // return $jobDataJson;
+
+        return view('callCenter.jobsApply', [
+            'jobDataJson' => $jobDataJson,
+            'type' => 'jobApply',
+            'jobDataJsonCity' => $jobDataJsonCity,
+            'jobDataJsonType' => $jobDataJsonType
+        ]);
+
+    }   
     public function getOffersDataType($type = null)
     {
         $jobData = [];
@@ -65,6 +130,7 @@ class CallCenterController extends ScrapController
         return view('callCenter.filtredType', [
             'jobDataJson' => $jobDataJson,
             'type' => $type,
+            "city" => 'typeCity',
             'jobDataJsonCity' => $jobDataJsonCity,
             'jobDataJsonType' => $jobDataJsonType
         ]);
@@ -213,6 +279,7 @@ class CallCenterController extends ScrapController
         $jobDataJsonCity = json_encode($jobDataCities);
         $jobDataJsonType = json_encode($jobDataTypes);
         return view('callCenter.home', [
+            'type' => 'home',
             'jobDataJson' => $jobDataJson,
             'jobDataJsonTop' => $jobDataJsonTop,
             'jobDataJsonCity' => $jobDataJsonCity,

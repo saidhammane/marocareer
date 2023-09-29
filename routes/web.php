@@ -18,6 +18,7 @@ use App\Http\Controllers\MailController;
 
 
 Route::get('/', [CallCenterController::class, 'getHomeOffersData']);
+Route::get('/application/{url}', [CallCenterController::class, 'jobApply']);
 Route::get('Ville/{city}', [CallCenterController::class, 'getOffersData']);
 Route::get('Type/{type}', [CallCenterController::class, 'getOffersDataType']);
 Route::get('Filter/{city}/{type}', [CallCenterController::class, 'getOffersData']);

@@ -336,8 +336,10 @@ $(document).ready(function () {
     $(document).ready(function () {
         function openSearchUrl(baseURL, city, type, cityParameter) {
             let url = baseURL;
-            if (city !== "Villes" && city !== "Toutes les villes") url += "?" + cityParameter + "=" + encodeURIComponent(city);
-            if (type !== "Type") url += (city ? "&" : "?") + "Type=" + encodeURIComponent(type);
+            if (city !== "Villes" && city !== "Toutes les villes")
+                url += "?" + cityParameter + "=" + encodeURIComponent(city);
+            if (type !== "Type")
+                url += (city ? "&" : "?") + "Type=" + encodeURIComponent(type);
             window.open(url, "_blank");
         }
 
@@ -366,42 +368,46 @@ $(document).ready(function () {
         //     } else openSearchUrl(baseURL, city, type, "ville");
         // });
 
-        $("#searchBtnHome").click(function () {
+        function handleHomeSearch() {
             var city = $("#cities").val();
             var type = $("#type").val();
+
             if (city === "Toutes les villes" && type === "Type") {
                 Swal.fire({
                     icon: "error",
                     text: "Veuillez sélectionner la ville ou le type d’emploi!",
                 });
-            }else{
-                if (city !== "Toutes les villes" && type !== "Type"){
-                    // console.log(url+city+"/"+type);
-                    // window.open(url+city+"/"+type);
-                    window.location.href = "/Filter/"+city+"/"+type;
+            } else {
+                if (city !== "Toutes les villes" && type !== "Type") {
+                    navigateTo("/Filter/" + city + "/" + type);
+                } else if (city !== "Toutes les villes") {
+                    navigateTo("/Ville/" + city);
+                } else {
+                    // Only type selected
+                    navigateTo("/Type/" + type);
                 }
-                else if(city !== "Toutes les villes"){
-                    window.location.href = "/Ville/"+city;
-                }
-                else window.location.href = "/Type/"+type;
             }
-        });
+        }
 
-        $("#searchBtnCallCnter").click(function () {
+        function handleCallCenterSearch() {
             var city = $("#citiesCallCnter").val();
-            var type = $("#typeCallCnter").val();
 
-            if (city !== "Villes"){
-                window.location.href = "/centre-appelle/Ville/"+city;
-            }else{
+            if (city !== "Villes") {
+                navigateTo("/centre-appelle/Ville/" + city);
+            } else {
                 Swal.fire({
                     icon: "error",
                     text: "Veuillez sélectionner la ville de centre d'appelle!",
                 });
             }
-        });
+        }
 
-        
+        function navigateTo(url) {
+            window.location.href = url;
+        }
+
+        $("#searchBtnHome").click(handleHomeSearch);
+        $("#searchBtnCallCnter").click(handleCallCenterSearch);
     });
 
     var urlSegments = window.location.href.split("/");
@@ -415,5 +421,7 @@ $(document).ready(function () {
     };
 
     var currentNavLink = document.getElementById(navLinkIds[currentUrlSegment]);
+    var currentNavLinkCallCenter = document.getElementById("currentNavCallCenter");
     if (currentNavLink) currentNavLink.classList.add("navbarCurrent");
+    else currentNavLinkCallCenter.classList.add("navbarCurrent");
 });
