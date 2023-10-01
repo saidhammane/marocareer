@@ -41,9 +41,4 @@
             </tbody>
         </table>
     </div>
-    
-    
-    <script>
-        
-    </script>
 @endsection
