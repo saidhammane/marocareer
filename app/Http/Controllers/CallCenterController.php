@@ -8,30 +8,26 @@ use GuzzleHttp\Client;
 
 class CallCenterController extends ScrapController
 {
-    
-    public function calCenterZone($callCanter){
+
+    public function calCenterZone($callCanter)
+    {
 
 
         $jobData = [];
-
-
         $client = new Client();
         $dom = new DOMDocument();
-        @$dom->loadHTML($client->get("https://www.moncallcenter.ma/".$callCanter)->getBody()->getContents());
+        @$dom->loadHTML($client->get("https://www.moncallcenter.ma/" . $callCanter)->getBody()->getContents());
         $xpath = new DOMXPath($dom);
 
-        
+
         $presentationJob = $xpath->query("/html/body/div[2]/div[1]/div[1]/div/div[2]/div/div/div");
         $imageCallCenterJob = $xpath->query("/html/body/div[1]/div[1]/div/div[1]/img");
         $avantagesJob = $xpath->query("/html/body/div[2]/div[1]/div[1]/div/div[5]/div/div[3]/div");
         $nosOffresEemploiTitreJob = $xpath->query("/html/body/div[2]/div[1]/div[2]/div/div[2]/div/ul/li/a/h4/text()");
         $nosOffresEemploiDescJob = $xpath->query("/html/body/div[2]/div[1]/div[2]/div/div[2]/div/ul/li[1]/a/span");
         $nosOffresEemploiUrlJob = $xpath->query("/html/body/div[2]/div[1]/div[2]/div/div[2]/div/ul/li[1]/a");
-
         // $callCenterNameJob = $xpath->query("/html/body/div[1]/div[2]/div/div/h2"); 
         // $localJob = $xpath->query("/html/body/div[2]/div[1]/div[1]/div/div[3]/div/div[1]/div/div[2]/div/div/span/text()[1]"); 
-
-
 
         for ($i = 0; $i < $presentationJob->length; $i++) {
             $presentation = $presentationJob[$i];
@@ -42,25 +38,30 @@ class CallCenterController extends ScrapController
             $nosOffresEemploiUrl = $nosOffresEemploiUrlJob[$i];
             // $callCenterName = $callCenterNameJob[$i];
             // $local = $localJob[$i];
-            if ($presentation) {
+            if (!$presentation || !$imageCallCenter || !$avantages || !$nosOffresEemploiTitre || !$nosOffresEemploiDesc || !$nosOffresEemploiUrl) {
+                $redirectUrl = "https://www.moncallcenter.ma/".$callCanter;
+                header("Location: $redirectUrl");
+                exit;
+            } else {
                 $jobData[] = [
                     'presentationJob' => $presentation->nodeValue,
                     'avantagesJob' => $avantages->nodeValue,
                     'nosOffresEemploiTitreJob' => $nosOffresEemploiTitre->nodeValue,
                     'nosOffresEemploiDescJob' => $nosOffresEemploiDesc->nodeValue,
-                    'nosOffresEemploiUrlJob' => "https://www.moncallcenter.ma/".$nosOffresEemploiUrl->getAttribute('href'),
+                    'nosOffresEemploiUrlJob' => "https://www.moncallcenter.ma/" . $nosOffresEemploiUrl->getAttribute('href'),
                     // 'callCenterNameJob' => $callCenterName->nodeValue,
                     // 'localJob' => $local->nodeValue,
-                    'imageCallCenter' => "https://www.moncallcenter.ma/".$imageCallCenter->getAttribute('src'),
+                    'imageCallCenter' => "https://www.moncallcenter.ma/" . $imageCallCenter->getAttribute('src'),
                 ];
             }
         }
         $jobDataJson = json_encode($jobData);
-        // return $jobDataJson;
-        return view('callCenterZone.home', ['jobDataJson' => $jobDataJson]);
+        return view('callCenterZone.home', ['jobDataJson' => $jobDataJson]);    
     }
-    public function jobApply($url = null) {
-        
+
+    public function jobApply($url = null)
+    {
+
         $jobData = [];
         $jobDataCities = [];
         $jobDataTypes = [];
@@ -71,7 +72,7 @@ class CallCenterController extends ScrapController
 
         $client = new Client();
         $dom = new DOMDocument();
-        @$dom->loadHTML($client->get("https://www.moncallcenter.ma//offre-emploi/".$url)->getBody()->getContents());
+        @$dom->loadHTML($client->get("https://www.moncallcenter.ma//offre-emploi/" . $url)->getBody()->getContents());
         $xpath = new DOMXPath($dom);
 
         $titleJob = $xpath->query("//*[@id='statuts']/div/div/div[2]/h1");
@@ -121,11 +122,11 @@ class CallCenterController extends ScrapController
                 'jobType' => $Type->nodeValue,
             ];
         }
-        
+
         $jobDataJson = json_encode($jobData);
         $jobDataJsonCity = json_encode($jobDataCities);
         $jobDataJsonType = json_encode($jobDataTypes);
-        
+
         // return $lastSegment;
 
         return view('callCenter.jobsApply', [
@@ -136,7 +137,7 @@ class CallCenterController extends ScrapController
             'jobDataJsonType' => $jobDataJsonType
         ]);
 
-    }   
+    }
     public function getOffersDataType($type = null)
     {
         $jobData = [];
@@ -266,7 +267,7 @@ class CallCenterController extends ScrapController
     public function getHomeOffersData($page = null)
     {
 
-        
+
         $currentURL = "http" . (($_SERVER['SERVER_PORT'] == 443) ? "s" : "") . "://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
         $lastSegment = basename(parse_url($currentURL, PHP_URL_PATH));
 
@@ -358,19 +359,20 @@ class CallCenterController extends ScrapController
 
         // return $jobDataJson;
     }
-    
-    
-    public function callCenterFilter($city = null){
-        
+
+
+    public function callCenterFilter($city = null)
+    {
+
         $callCenterData = [];
         $jobDataCities = [];
-        
+
         $client = new Client();
         $dom = new DOMDocument();
-        @$dom->loadHTML($client->get('https://www.moncallcenter.ma/centres-appels.php?ville='.$city)->getBody()->getContents());
+        @$dom->loadHTML($client->get('https://www.moncallcenter.ma/centres-appels.php?ville=' . $city)->getBody()->getContents());
         $xpath = new DOMXPath($dom);
 
-        
+
         $jobCity = $xpath->query("//*[@id='ville']/option");
         $callCenterImgLink = $xpath->query("//*[@id='centreLeftN']/div[1]/div/div/div[1]/a/img");
         $callCenterName = $xpath->query("//*[@id='centreLeftN']/div[1]/div/div/center/label/b/h2/a");
@@ -400,7 +402,7 @@ class CallCenterController extends ScrapController
                 'jobCity' => $City->nodeValue,
             ];
         }
-        
+
         $jobDataJsonCity = json_encode($jobDataCities);
         $callCenterDataJson = json_encode($callCenterData);
         // return $callCenterDataJson;
@@ -458,6 +460,7 @@ class CallCenterController extends ScrapController
         $jobDataJsonCity = json_encode($jobDataCities);
         $jobDataJsonType = json_encode($jobDataTypes);
         $callCenterDataJson = json_encode($callCenterData);
+        // return $callCenterDataJson;
         return view('callCenter.callcenters', [
             'jobDataJsonCity' => $jobDataJsonCity,
             'jobDataJsonType' => $jobDataJsonType,

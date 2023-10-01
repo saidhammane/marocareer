@@ -86,7 +86,12 @@
                         <div class="thumb">
                             <div class="cardsTitle">Avantages:</div>
                             <hr class="new5"><br><br>
-                            <p>{{ $job['avantagesJob'] }}</p>
+                            @if (isset($jobDataJson))
+                                @php $jobData = json_decode($jobDataJson, true); @endphp
+                                @foreach ($jobData as $job)
+                                    <p>{{ $job['avantagesJob'] }}</p>
+                                @endforeach
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -95,11 +100,18 @@
                         <div class="thumb">
                             <div class="cardsTitle">Nos offres d'emploi:</div>
                             <hr class="new5"><br><br>
-                            <a href="{{ $job['nosOffresEemploiUrlJob'] }}" target="_blank">
-                                <p class="titleJobCallcenter">{{ $job['nosOffresEemploiTitreJob'] }}</p>
-                            </a>
-                            <p>{{ $job['nosOffresEemploiDescJob'] }}</p>
-                            <hr class="new6">
+
+
+                            @if (isset($jobDataJson))
+                                @php $jobData = json_decode($jobDataJson, true); @endphp
+                                @foreach ($jobData as $job)
+                                    <a href="{{ $job['nosOffresEemploiUrlJob'] }}" target="_blank">
+                                        <p class="titleJobCallcenter">{{ $job['nosOffresEemploiTitreJob'] }}</p>
+                                    </a>
+                                    <p>{{ $job['nosOffresEemploiDescJob'] }}</p>
+                                    <hr class="new6">
+                                @endforeach
+                            @endif
                         </div>
                     </div>
                 </div>

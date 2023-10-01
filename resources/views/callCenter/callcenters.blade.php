@@ -47,7 +47,7 @@
                             <div class="card ">
                                 <img class="card-img-top darkened-image" src="{{ $job['ImgLink'] }}"
                                     alt="{{ $job['name'] }}" title="{{ $job['name'] }}" height="150" loading="lazy">
-                                <a href="{{ $job['url'] }}" target="_blank">
+                                <a href="/callcenters/{{ basename($job['url']) }}" >
                                     <img class="overlay-image rounded" src="{{ $job['ImgLink'] }}" alt="{{ $job['name'] }}"
                                     title="{{ $job['name'] }}" height="80" loading="lazy" width="80"></a>
                                 <div class="card-body">
