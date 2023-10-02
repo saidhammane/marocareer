@@ -34,17 +34,17 @@
                                 <div class="job-container">
                                     <div class="details">
                                         <div class="title ">
+                                            @php
+                                                $url = $job['jobUrl'];
+                                                $urlSegments = explode('/', parse_url($url, PHP_URL_PATH));
+                                                $lastSegmentUrl = end($urlSegments);
+                                            @endphp
                                             <div class="titles">
-                                                <a href="{{ $job['jobUrl'] }}">
+                                                <a href="/application/{{ $lastSegmentUrl }}">
                                                     <h4>{{ $job['jobTitle'] }}</h4>
                                                 </a>
                                                 <h6>{{ $job['jobDate'] }}</h6>
                                             </div>
-                                            @php
-                                                $url = $job['jobUrl']; 
-                                                $urlSegments = explode('/', parse_url($url, PHP_URL_PATH));
-                                                $lastSegmentUrl = end($urlSegments);
-                                            @endphp
                                             <ul class="btns">
                                                 <li><a href="/application/{{ $lastSegmentUrl }}">Postuler</a></li>
                                             </ul>
@@ -95,7 +95,8 @@
                                         <a href="/application/{{ $lastSegmentUrl }}">
                                             <h4>{{ $job['jobTitle'] }}</h4>
                                         </a>
-                                        <a href="/application/{{ $lastSegmentUrl }}" class="btns text-uppercase">POSTULER</a>
+                                        <a href="/application/{{ $lastSegmentUrl }}"
+                                            class="btns text-uppercase">POSTULER</a>
                                     </div>
                                 @endforeach
                             @endif
