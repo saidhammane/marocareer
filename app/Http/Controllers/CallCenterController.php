@@ -493,8 +493,7 @@ class CallCenterController extends ScrapController
         ]);
 
     }
-    public function quiz()
-    {
+    public function quiz() {
         $quizData = [];
         $callCenterRecrut = [];
         $client = new Client();
@@ -526,7 +525,6 @@ class CallCenterController extends ScrapController
             ];
 
         }
-        ;
         for ($i = 0; $i < 6; $i++) {
             $imgUrl = $callCenterRecrutImgUrl[$i];
             $url = $callCenterRecrutUrl[$i];
@@ -539,6 +537,44 @@ class CallCenterController extends ScrapController
         $quizDataJson = json_encode($quizData);
         $callCenterRecrutJson = json_encode($callCenterRecrut);
         return view('callCenter.quiz', ['quizDataJson' => $quizDataJson, 'callCenterRecrutJson' => $callCenterRecrutJson]);
+    }
+
+    public function quizZone($title){
+        
+        $quizData = [];
+        
+        $client = new Client();
+        $dom = new DOMDocument();
+        @$dom->loadHTML($client->get('https://www.moncallcenter.ma/test/'.$title)->getBody()->getContents());
+        $xpath = new DOMXPath($dom);
+
+        $quizFormattedTitle = substr(implode(" ", array_map('ucfirst', explode("-", $title))), 0, -1);
+
+        
+        $quizTitle = $xpath->query("//*[@id='centreLeftN']/h1")->item(0);;
+        $quizImgUrl = $xpath->query("//*[@id='statuts']/div[1]/div[1]/img");
+        $quizDuree  = $xpath->query("//*[@id='statuts']/div[1]/div[2]/span[1]/text()");
+        $quizNombreQuestions  = $xpath->query("//*[@id='statuts']/div[1]/div[2]/span[2]/text()");
+        $quizNombreParticipants  = $xpath->query("//*[@id='statuts']/div[1]/div[2]/span[3]/text()");
+        $quizNoteMoyenne   = $xpath->query("//*[@id='statuts']/div[1]/div[2]/span[4]/text()");
+        $quizDescription   = $xpath->query("//*[@id='statuts']/div[1]/p");
+
+        foreach ($quizImgUrl as $i => $imgUrl) {
+            $quizData[] = [
+                'quizTitle' =>  $quizTitle ? $quizTitle->nodeValue : $quizFormattedTitle,
+                'imgUrl' => $quizImgUrl[$i]->getAttribute('src'),
+                'quizDuree' => $quizDuree[$i]->nodeValue,
+                'quizNombreQuestions' => $quizNombreQuestions[$i]->nodeValue,
+                'quizNombreParticipants' => $quizNombreParticipants[$i]->nodeValue,
+                'quizNoteMoyenne' => $quizNoteMoyenne[$i]->nodeValue,
+                'quizDescription' => $quizDescription[$i]->nodeValue,
+            ];
+        }
+
+        $quizDataJson = json_encode($quizData);
+        // return $quizDataJson;
+        return view("quiz.home", ["quizDataJson" => $quizDataJson, "title"=> $quizFormattedTitle, "url" => $title]);
+
     }
 
 

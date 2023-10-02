@@ -10,6 +10,7 @@
     
     <p><strong>Name:</strong> {{ $mailData['name'] }}</p>
     <p><strong>Email:</strong> {{ $mailData['email'] }}</p>
+    <p><strong>Subject:</strong> {{ $mailData['object'] }}</p>
     
     <p><strong>Message:</strong></p>
     <p>{{ $mailData['message'] }}</p>

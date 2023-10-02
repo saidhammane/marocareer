@@ -13,12 +13,14 @@ class MailController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
+            'object' => 'required|string|max:255',
             'message' => 'required|string',
         ]);
 
         $mailData = [
             'name' => $validatedData['name'],
             'email' => $validatedData['email'],
+            'object' => $validatedData['object'],
             'message' => $validatedData['message'],
         ];
 

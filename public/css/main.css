@@ -4419,6 +4419,13 @@ body.mobile-nav-active #mobile-nav-toggle {
     font-size: 20px;
 }
 
+
+.cardsTitleQuiz {
+    font-family: "georgia";
+    font-weight: bold;
+    font-size: 15px;
+}
+
 hr.new5 {
     border: 5px solid #584c4c;
     border-radius: 5px;

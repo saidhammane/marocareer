@@ -81,8 +81,8 @@
     <!-- End post Area -->
 
     <div class="container mb-5">
-        <a href="https://www.moncallcenter.ma/{{ $callCenter }}" target="_blank"
-            class="btn btn-primary text-white h4" style="width: 100%">Voir plus</a>
+        <a href="https://www.moncallcenter.ma/{{ $callCenter }}" target="_blank" class="btn btn-primary text-white h4"
+            style="width: 100%">Voir plus</a>
     </div>
 
     @include('partials.footer')
