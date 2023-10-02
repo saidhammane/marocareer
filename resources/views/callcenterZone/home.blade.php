@@ -3,45 +3,7 @@
 @section('content')
     @include('partials.navbar')
 
-    <style>
-        .single-post {
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
-            transition: transform 0.3s ease;
-        }
-
-        .single-post:hover {
-            transform: translateY(-10px);
-        }
-
-        .cardsTitle {
-            font-family: 'georgia';
-            font-weight: bold;
-            font-size: 20px;
-        }
-
-        hr.new5 {
-            border: 5px solid #584c4c;
-            border-radius: 5px;
-            width: 60px;
-            float: left;
-        }
-
-        hr.new6 {
-            border: 2px solid #584c4c;
-            border-radius: 5px;
-            width: 200px;
-            float: left;
-        }
-
-        .titleJobCallcenter {
-            font-family: 'georgia';
-            font-weight: bold;
-            font-size: 12px;
-        }
-    </style>
     <section class="banner-area relative" id="home">
-
         <div class="overlay overlay-bg"></div>
         <div class="container">
             <div class="row fullscreen d-flex align-items-center justify-content-center">
@@ -57,9 +19,7 @@
                 </div>
             </div>
         </div>
-
     </section>
-
 
     <!-- Start post Area -->
     <section class="post-area section-gap">
@@ -119,6 +79,11 @@
         </div>
     </section>
     <!-- End post Area -->
+
+    <div class="container mb-5">
+        <a href="https://www.moncallcenter.ma/{{ $callCenter }}" target="_blank"
+            class="btn btn-primary text-white h4" style="width: 100%">Voir plus</a>
+    </div>
 
     @include('partials.footer')
 @endsection

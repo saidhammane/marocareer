@@ -47,17 +47,20 @@
                             <div class="card ">
                                 <img class="card-img-top darkened-image" src="{{ $job['ImgLink'] }}"
                                     alt="{{ $job['name'] }}" title="{{ $job['name'] }}" height="150" loading="lazy">
-                                <a href="/callcenters/{{ basename($job['url']) }}" >
+                                <a href="/callcenters/{{ basename($job['url']) }}">
                                     <img class="overlay-image rounded" src="{{ $job['ImgLink'] }}" alt="{{ $job['name'] }}"
-                                    title="{{ $job['name'] }}" height="80" loading="lazy" width="80"></a>
+                                        title="{{ $job['name'] }}" height="80" loading="lazy" width="80"></a>
                                 <div class="card-body">
                                     <div style="text-align: center;">
                                         <div class="card-title h5">{{ $job['name'] }}</div>
                                     </div>
                                     <p class="card-text">{{ $job['description'] }}</p>
                                     <div style="text-align: center;">
-                                        <a href="{{ $job['offresUrl'] }}" class="btn btn-secondary"
-                                            target="_blank">{{ $job['offres'] }}</a>
+                                        @php
+                                            $urlSegments = explode('/', parse_url($job['url'], PHP_URL_PATH));
+                                            $lastSegmentUrl = end($urlSegments);
+                                        @endphp
+                                        <a href="/callcenters/{{ $lastSegmentUrl}}/offres-emploi" class="btn btn-secondary">{{ $job['offres'] }}</a>
                                     </div>
                                 </div>
                             </div>
