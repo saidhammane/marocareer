@@ -42,9 +42,10 @@
                                     onfocus="this.placeholder = ''"
                                     onblur="this.placeholder = 'Entrer votre addresse email'"
                                     class="common-input mb-20 form-control" required="" type="email">
+                                    
 
-                                <input name="object" placeholder="Objet" onfocus="this.placeholder = ''"
-                                    onblur="this.placeholder = ''" class="common-input mb-20 form-control"
+                                <input name="object" placeholder="Entrer votre objet" onfocus="this.placeholder = 'Entrer votre objet'"
+                                    onblur="this.placeholder = 'Entrer votre objet'" class="common-input mb-20 form-control"
                                     required="" type="text">
 
                                 <textarea class="common-textarea mt-10 form-control" name="message" placeholder="Messege"
