@@ -7,8 +7,8 @@ $(document).ready(function () {
         header_height_static = $(".site-header.static").outerHeight(),
         fitscreen = window_height - header_height;
 
-    $(".fullscreen").css("height", window_height);
-    $(".fitscreen").css("height", fitscreen);
+    // $(".fullscreen").css("height", window_height);
+    // $(".fitscreen").css("height", fitscreen);
 
     if (document.getElementById("default-select")) {
         $("select").niceSelect();
@@ -376,6 +376,9 @@ $(document).ready(function () {
                 Swal.fire({
                     icon: "error",
                     text: "Veuillez sélectionner la ville ou le type d’emploi!",
+                    customClass: {
+                        container: 'custom-modal-class',
+                    }
                 });
             } else {
                 if (city !== "Toutes les villes" && type !== "Type") {

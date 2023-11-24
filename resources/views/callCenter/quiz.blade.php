@@ -17,6 +17,7 @@
                 </div>
             </div>
         </div>
+        @include('partials.shape')
     </section>
     <section class="post-area section-gap">
         <div class="container">

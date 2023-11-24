@@ -15,13 +15,14 @@
                     <p class="text-white"><a href="/">Accueill </a> <span class="lnr lnr-arrow-right"></span> <a
                             href="/contact"> Contact </a></p>
 
-                    <div class="text-center">
+                    <!-- <div class="text-center">
                         <img src="{{ asset('img/customer-care.png') }}" class="rounded" alt="contact image marocareer"
                             loading="lazy" title="contact image marocareer" height="230" width="230">
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
+        @include('partials.shape')
     </section>
     <!-- End banner Area -->
 

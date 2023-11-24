@@ -36,6 +36,7 @@
                 </div>
             </div>
         </div>
+        @include('partials.shape')
     </section>
     <section>
         <div class="container mt-20 mb-20">
