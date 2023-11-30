@@ -28,16 +28,14 @@
 <!-- Start contact-page Area -->
 <section class="contact-page-area section-gap">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-6">
-                <img src="{{ asset('img/contact/img-1.jpg') }}" alt="" width="500" height="500" class="fluid-img">
-                <p>Feel Free To Drop Us A Line Bellow!</p>
-            </div>
-            <div class="col-lg-6">
-                <div class="menu-content mb-5">
+        <div class="row my-5">
+           
+            <div class="col-lg-8">
+                <div class="menu-content mb-4">
                     <div class="title pb-20 text-start">
-                        <h2>Send Us A Message</h2>
+                        <h2>Let's talk about everything!</h2>
                     </div>
+                    <p class="mt-3">Bienvenue sur Marocareer, votre porte d'entrée vers des opportunités professionnelles passionnantes au Maroc. Nous apprécions vos retours, questions et interactions. N'hésitez pas à nous contacter via les coordonnées ci-dessous :</p>
                 </div>
                 <form class="form-area" id="contactForm" method="get" class="contact-form text-right" action="send-mail">
                     <div class="row">
@@ -50,11 +48,14 @@
                             <input name="object" placeholder="Entrer votre objet" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Entrer votre objet'" class="common-input mb-20 form-control" required="" type="text">
 
                             <textarea class="common-textarea mt-10 form-control" name="message" placeholder="Messege" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'" required=""></textarea>
-                            <button class="primary-btn mt-20 text-white" style="float: right;" type="submit">Envoyer</button>
+                            <button class="button mt-4" type="submit">Envoyer</button>
                             <div class="mt-20 alert-msg" style="text-align: left;"></div>
                         </div>
                     </div>
                 </form>
+            </div>
+            <div class="col-lg-4 text-center">
+                <img src="{{ asset('img/contact/img-1.jpg') }}" alt="" width="100%" height="90%" class="fluid-img">
             </div>
         </div>
     </div>

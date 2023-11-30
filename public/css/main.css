@@ -2925,7 +2925,7 @@ body.mobile-nav-active #mobile-nav-toggle {
     color: #222;
     margin-bottom: 8px;
 }
-
+.button,
 .sidebar .single-rated .btns {
     background-color: #ec8f5e;
     color: #fff;
@@ -2937,11 +2937,14 @@ body.mobile-nav-active #mobile-nav-toggle {
     -moz-transition: all 0.3s ease 0s;
     -o-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
+    cursor: pointer;
 }
-
+.button:hover,
 .sidebar .single-rated .btns:hover {
     background-color: #994d1c;
     font-weight: bold;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 .sidebar .single-blog {
