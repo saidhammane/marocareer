@@ -2668,6 +2668,25 @@ body.mobile-nav-active #mobile-nav-toggle {
     position: relative;
     padding: 25px 50px 25px 25px;
 }
+.post-list .single-post .button {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: none;
+    animation: buttonDisplay .2s ease-in-out;
+}
+.post-list .single-post:hover .button {
+    display: block;
+}
+@keyframes buttonDisplay {
+    0%{
+        transform: scale(0);
+        opacity: 0;
+    }100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
 .single-post-icon {
     position: absolute;
     right: 25px;
@@ -2943,6 +2962,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 .sidebar .single-rated .btns:hover {
     background-color: #994d1c;
     font-weight: bold;
+    color: #fff;
     padding-left: 30px;
     padding-right: 30px;
 }

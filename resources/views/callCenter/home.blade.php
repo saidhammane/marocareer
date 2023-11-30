@@ -127,7 +127,7 @@
                         @endif
                     </ul>
                 </div>
-                <div class="single-slidebar">
+                <!-- <div class="single-slidebar">
                     <div class="menu-content mb-4">
                         <div class="title text-start">
                             <h4>Actualités</h4>
@@ -160,7 +160,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

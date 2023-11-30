@@ -55,7 +55,7 @@
                 </form>
             </div>
             <div class="col-lg-4 text-center">
-                <img src="{{ asset('img/contact/img-1.jpg') }}" alt="" width="100%" height="90%" class="fluid-img">
+                <img src="{{ asset('img/contact/img-1.jpg') }}" alt="contact service" title="contact service" width="100%" height="90%" class="fluid-img" loading="lazy">
             </div>
         </div>
     </div>
