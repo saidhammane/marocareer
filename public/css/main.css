@@ -2392,7 +2392,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 .banner-content {
     text-align: center;
     height: auto;
-    padding: 150px 0;
+    padding: 100px 0;
 }
 
 .banner-content h1 {
@@ -2822,11 +2822,19 @@ body.mobile-nav-active #mobile-nav-toggle {
     }
 }
 
-@media (max-width: 414px) {
+@media (max-width: 501px) {
     .post-list .single-post.flex-row {
         flex-direction: column !important;
-        text-align: start;
-        /* display: inline-block !important; */
+        text-align: center;
+    }
+    .post-list {
+        margin-bottom: 15px;
+    }
+    .post-list .single-post {
+        padding: 30px 30px 50px 30px;
+    }
+    .post-list .single-post .button {
+        width: 100%;
     }
     .post-list .title.flex-row {
         flex-direction: column !important;
@@ -4575,4 +4583,11 @@ div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
     background: #ec8f5e;
     left: 0;
     bottom: 8px;
+}
+
+.fw-bold {
+    font-weight: bold !important;
+}
+.text-primary {
+    color: #ec8f5e !important;
 }

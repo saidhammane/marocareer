@@ -20,7 +20,7 @@
 </section>
 <section class="post-area section-gap">
     <div class="container">
-        <div class="row justify-content-center d-flex">
+        <div class="row justify-content-center d-flex my-5">
             <div class="col-lg-8 post-list">
                 <div class="row">
                     @if (isset($quizDataJson))
@@ -60,7 +60,7 @@
                         @if (isset($callCenterRecrutJson))
                         @php $callCenterRecrut = json_decode($callCenterRecrutJson, true); @endphp
                         @foreach ($callCenterRecrut as $job)
-                        <div class="col-md-4 mt-10">
+                        <div class="col-6 col-md-4 mt-10 text-center">
                             <a href="callcenters/{{ $job['title'] }}">
                                 <img src="{{ $job['imgUrl'] }}" class="img-thumbnail" alt="{{ $job['title'] }}" title="{{ $job['title'] }}" loading="lazy" height="200" width="200">
                             </a>
