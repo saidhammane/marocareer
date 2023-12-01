@@ -334,84 +334,58 @@ $(document).ready(function () {
     }
 
     $(document).ready(function () {
-        function openSearchUrl(baseURL, city, type, cityParameter) {
-            let url = baseURL;
-            if (city !== "Villes" && city !== "Toutes les villes")
-                url += "?" + cityParameter + "=" + encodeURIComponent(city);
-            if (type !== "Type")
-                url += (city ? "&" : "?") + "Type=" + encodeURIComponent(type);
+        function buildSearchUrl(baseURL, params) {
+            return baseURL + "?" + $.param(params);
+        }
+    
+        function openSearchUrl(url) {
             window.open(url, "_blank");
         }
-
-        // $("#searchBtnHome").click(function () {
-        //     var city = $("#cities").val();
-        //     var type = $("#type").val();
-        //     const baseURL = "https://www.moncallcenter.ma/q-offres/";
-
-        //     if (city === "Toutes les villes" && type === "Type") {
-        //         Swal.fire({
-        //             icon: "error",
-        //             text: "Veuillez sélectionner la ville ou le type d’emploi!",
-        //         });
-        //     } else openSearchUrl(baseURL, city, type, "Ville");
-        // });
-        // $("#searchBtnCallCnter").click(function () {
-        //     var city = $("#citiesCallCnter").val();
-        //     var type = $("#typeCallCnter").val();
-        //     const baseURL = "https://www.moncallcenter.ma/centres-appels.php/";
-
-        //     if (city === "Villes" && type === "Type") {
-        //         Swal.fire({
-        //             icon: "error",
-        //             text: "Veuillez sélectionner la ville ou le type d’emploi!",
-        //         });
-        //     } else openSearchUrl(baseURL, city, type, "ville");
-        // });
-
-        function handleHomeSearch() {
-            var city = $("#cities").val();
-            var type = $("#type").val();
-
-            if (city === "Toutes les villes" && type === "Type") {
-                Swal.fire({
-                    icon: "error",
-                    text: "Veuillez sélectionner la ville ou le type d’emploi!",
-                    customClass: {
-                        container: 'custom-modal-class',
-                    }
-                });
-            } else {
-                if (city !== "Toutes les villes" && type !== "Type") {
-                    navigateTo("/Filter/" + city + "/" + type);
-                } else if (city !== "Toutes les villes") {
-                    navigateTo("/Ville/" + city);
-                } else {
-                    // Only type selected
-                    navigateTo("/Type/" + type);
+    
+        function showError(message) {
+            Swal.fire({
+                icon: "error",
+                text: message,
+                customClass: {
+                    container: 'custom-modal-class',
                 }
-            }
+            });
         }
-
-        function handleCallCenterSearch() {
-            var city = $("#citiesCallCnter").val();
-
-            if (city !== "Villes") {
-                navigateTo("/centre-appelle/Ville/" + city);
+    
+        function handleSearch(city, type, baseURL, cityParameter) {
+            if (city && type) {
+                const params = { [cityParameter]: city, Type: type };
+                const url = buildSearchUrl(baseURL, params);
+                openSearchUrl(url);
             } else {
-                Swal.fire({
-                    icon: "error",
-                    text: "Veuillez sélectionner la ville de centre d'appelle!",
-                });
+                showError("Veuillez sélectionner la ville et le type d’emploi!");
             }
         }
-
-        function navigateTo(url) {
-            window.location.href = url;
+    
+        function handleHomeSearch() {
+            const city = $("#cities").val();
+            const type = $("#type").val();
+            const baseURL = "https://www.moncallcenter.ma/q-offres/";
+            const cityParameter = "Ville";
+    
+            handleSearch(city, type, baseURL, cityParameter);
         }
-
+    
+        function handleCallCenterSearch() {
+            const city = $("#citiesCallCnter").val();
+            const baseURL = "https://www.moncallcenter.ma/centres-appels.php/";
+            const cityParameter = "ville";
+    
+            if (city && city !== "Villes") {
+                handleSearch(city, null, baseURL, cityParameter);
+            } else {
+                showError("Veuillez sélectionner la ville de centre d'appelle!");
+            }
+        }
+    
         $("#searchBtnHome").click(handleHomeSearch);
         $("#searchBtnCallCnter").click(handleCallCenterSearch);
-    });
+    });    
 
     var urlSegments = window.location.href.split("/");
     var currentUrlSegment = urlSegments[urlSegments.length - 1];
