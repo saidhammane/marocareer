@@ -2397,7 +2397,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 .banner-content h1 {
     font-size: 48px;
-    font-weight: 300;
+    font-weight: bold;
     line-height: 1em;
     margin-top: 20px;
 }
@@ -2826,6 +2826,11 @@ body.mobile-nav-active #mobile-nav-toggle {
     .post-list .single-post.flex-row {
         flex-direction: column !important;
         text-align: center;
+    }
+    .post-list .single-post.single-post-start-text {
+        flex-direction: column !important;
+        text-align: start;
+        padding: 30px 60px 30px 30px;
     }
     .post-list {
         margin-bottom: 15px;
@@ -3446,12 +3451,12 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 .single-footer-widget ::-moz-selection {
     /* Code for Firefox */
-    background-color: #49e4fa;
+    background-color: #ec8f5e;
     color: #777777;
 }
 
 .single-footer-widget ::selection {
-    background-color: #49e4fa;
+    background-color: #ec8f5e;
     color: #777777;
 }
 
@@ -3582,14 +3587,14 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .about-content h1 {
-    font-size: 48px;
-    font-weight: 300;
+    font-size: 58px;
+    font-weight: bold;
 }
 
 .about-content a {
     color: #fff;
     font-weight: 300;
-    font-size: 14px;
+    font-size: 18px;
 }
 
 .about-content .lnr {
@@ -4493,16 +4498,6 @@ body.mobile-nav-active #mobile-nav-toggle {
         transform: rotate(50deg) scale(1);
     }
 }
-
-/* .single-post {
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-    transition: transform 0.3s ease;
-}
-
-.single-post:hover {
-    transform: translateY(-10px);
-} */
 
 .cardsTitle {
     font-family: "georgia";

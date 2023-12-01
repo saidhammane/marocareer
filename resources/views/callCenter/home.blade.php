@@ -17,7 +17,7 @@
                 @if (isset($jobDataJson))
                 @php $jobData = json_decode($jobDataJson, true); @endphp
                 @foreach ($jobData as $job)
-                <div class="single-post d-flex flex-row align-sm-items-center">
+                <div class="single-post d-flex align-sm-items-center single-post-start-text">
                     <div class="thumb">
                         <img src="{{ $job['ImgLink'] }}" alt="{{ $job['jobTitle'] }}" title="{{ $job['jobTitle'] }}" loading="lazy" height="100" width="100">
                     </div>

@@ -4,19 +4,6 @@
 @include('partials.navbar')
 @include('partials.filter')
 
-<!-- Start feature-cat Area -->
-<!-- <section class="feature-cat-area pt-100" id="category">
-        <div class="container">
-            <div class="row d-flex justify-content-center">
-                <div class="menu-content pb-60 col-lg-10">
-                    <div class="title text-center">
-                        <h2 class="mb-10">Nos offres said</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-<!-- End feature-cat Area -->
 <!-- Start post Area -->
 <section class="post-area section-gap">
     <div class="container">
@@ -31,7 +18,7 @@
                 @if (count((array) $jobDataJson) > 0)
                 @php $jobData = json_decode($jobDataJson, true); @endphp
                 @foreach ($jobData as $job)
-                <div class="single-post d-flex flex-row align-sm-items-center">
+                <div class="single-post d-flex align-sm-items-center single-post-start-text">
                     <div class="thumb">
                         <img src="{{ $job['jobImgLink'] }}" alt="{{ $job['jobTitle'] }}" title="{{ $job['jobTitle'] }}" loading="lazy" height="100" width="100">
                     </div>
