@@ -2666,7 +2666,7 @@ body.mobile-nav-active #mobile-nav-toggle {
     background-color: #f5f5f5;
     cursor: pointer;
     position: relative;
-    padding: 25px 50px 25px 25px;
+    padding: 25px 80px 25px 25px;
 }
 .post-list .single-post .button {
     position: absolute;
@@ -3577,7 +3577,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .about-content {
-    padding: 150px 0px;
+    padding: 100px 0px;
     text-align: center;
 }
 

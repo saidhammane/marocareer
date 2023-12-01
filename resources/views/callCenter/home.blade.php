@@ -4,24 +4,16 @@
 @include('partials.navbar')
 @include('partials.filter')
 
-<!-- Start feature-cat Area -->
-<section class="feature-cat-area pt-100" id="category">
-    <div class="container">
-        <div class="row d-flex justify-content-center">
-            <div class="menu-content pb-30 col-lg-12">
-                <div class="title text-start">
-                    <h2 class="mb-20">Nos offres récentes</h2>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End feature-cat Area -->
 <!-- Start post Area -->
 <section class="post-area section-gap">
     <div class="container">
-        <div class="row justify-content-center d-flex">
+        <div class="row justify-content-center d-flex my-5">
             <div class="col-lg-8 post-list">
+                <div class="menu-content pb-30 col-lg-12">
+                    <div class="title text-start">
+                        <h2 class="mb-20">Nos offres récentes</h2>
+                    </div>
+                </div>
                 @if (isset($jobDataJson))
                 @php $jobData = json_decode($jobDataJson, true); @endphp
                 @foreach ($jobData as $job)

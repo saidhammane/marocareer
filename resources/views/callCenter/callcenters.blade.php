@@ -42,6 +42,11 @@
     <div class="container">
         <div class="row my-5">
             <div class="col-lg-8">
+                <div class="menu-content pb-30 col-lg-12">
+                    <div class="title text-start">
+                        <h2 class="mb-20">Liste des centres d'appels - Maroc</h2>
+                    </div>
+                </div>
                 <div class="row">
                     @if (isset($callCenterDataJson))
                     @php $callCenterData = json_decode($callCenterDataJson, true); @endphp
@@ -63,7 +68,7 @@
                                             $urlSegments = explode('/', parse_url($job['url'], PHP_URL_PATH));
                                             $lastSegmentUrl = end($urlSegments);
                                             @endphp
-                                            <a href="/callcenters/{{ $lastSegmentUrl}}/offres-emploi" class="button">{{ $job['offres'] }}</a>
+                                            <a href="/callcenters/{{ $lastSegmentUrl}}/offres-emploi" class="button d-block">{{ $job['offres'] }}</a>
                                         </div>
                                     </div>
                                 </div>
