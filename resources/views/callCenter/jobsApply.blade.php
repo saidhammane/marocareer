@@ -122,15 +122,5 @@
     </div>
 </section>
 
-<div class="container mb-5">
-    <div class="container">
-        <div class="container">
-            <div class="container">
-
-            </div>
-        </div>
-    </div>
-</div>
-
 @include('partials.footer')
 @endsection

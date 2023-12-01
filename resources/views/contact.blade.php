@@ -30,7 +30,7 @@
     <div class="container">
         <div class="row my-5">
            
-            <div class="col-lg-8">
+            <div class="col-lg-7">
                 <div class="menu-content mb-4">
                     <div class="title pb-20 text-start">
                         <h2>Let's talk about everything!</h2>
@@ -54,8 +54,8 @@
                     </div>
                 </form>
             </div>
-            <div class="col-lg-4 text-center">
-                <img src="{{ asset('img/contact/img-1.jpg') }}" alt="contact service" title="contact service" width="100%" height="90%" class="fluid-img" loading="lazy">
+            <div class="col-lg-5 text-center">
+                <img src="{{ asset('img/contact/img-1.jpg') }}" alt="contact service" title="contact service" width="100%" height="100%" class="fluid-img" loading="lazy">
             </div>
         </div>
     </div>
