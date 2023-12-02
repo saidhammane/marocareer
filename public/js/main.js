@@ -334,58 +334,43 @@ $(document).ready(function () {
     }
 
     $(document).ready(function () {
-        function buildSearchUrl(baseURL, params) {
-            return baseURL + "?" + $.param(params);
-        }
-    
-        function openSearchUrl(url) {
-            window.open(url, "_blank");
-        }
-    
-        function showError(message) {
-            Swal.fire({
-                icon: "error",
-                text: message,
-                customClass: {
-                    container: 'custom-modal-class',
-                }
-            });
-        }
-    
-        function handleSearch(city, type, baseURL, cityParameter) {
-            if (city && type) {
-                const params = { [cityParameter]: city, Type: type };
-                const url = buildSearchUrl(baseURL, params);
-                openSearchUrl(url);
-            } else {
-                showError("Veuillez sélectionner la ville et le type d’emploi!");
-            }
-        }
-    
         function handleHomeSearch() {
-            const city = $("#cities").val();
-            const type = $("#type").val();
-            const baseURL = "https://www.moncallcenter.ma/q-offres/";
-            const cityParameter = "Ville";
-    
-            handleSearch(city, type, baseURL, cityParameter);
-        }
-    
-        function handleCallCenterSearch() {
-            const city = $("#citiesCallCnter").val();
-            const baseURL = "https://www.moncallcenter.ma/centres-appels.php/";
-            const cityParameter = "ville";
-    
-            if (city && city !== "Villes") {
-                handleSearch(city, null, baseURL, cityParameter);
+            var city = $("#cities").val();
+            var type = $("#type").val();
+
+            if (city === "Toutes les villes" && type === "Type") {
+                Swal.fire({
+                    icon: "error",
+                    text: "Veuillez sélectionner la ville ou le type d’emploi!",
+                    customClass: {
+                        container: 'custom-modal-class',
+                    }
+                });
             } else {
-                showError("Veuillez sélectionner la ville de centre d'appelle!");
+                if (city !== "Toutes les villes" && type !== "Type") navigateTo("/Filter/" + city + "/" + type);
+                else if (city !== "Toutes les villes") navigateTo("/Ville/" + city);
+                else navigateTo("/Type/" + type);
             }
         }
-    
+
+        function handleCallCenterSearch() {
+            var city = $("#citiesCallCnter").val();
+            if (city !== "Villes") navigateTo("/centre-appelle/Ville/" + city);
+            else {
+                Swal.fire({
+                    icon: "error",
+                    text: "Veuillez sélectionner la ville de centre d'appelle!",
+                });
+            }
+        }
+
+        function navigateTo(url) {
+            window.location.href = url;
+        }
+
         $("#searchBtnHome").click(handleHomeSearch);
         $("#searchBtnCallCnter").click(handleCallCenterSearch);
-    });    
+    });
 
     var urlSegments = window.location.href.split("/");
     var currentUrlSegment = urlSegments[urlSegments.length - 1];
