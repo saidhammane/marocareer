@@ -24,14 +24,14 @@
     <div class="loader-content">
         <div class="loader"></div>
     </div>
-    <div id="all-pages" class="d-none">
+    <div id="all-pages" class="invisible">
         @yield('content')
     </div>
     <script>
         window.addEventListener('load', function() {
             setTimeout(function() {
                 document.querySelector('.loader-content').style.display = 'none';
-                document.querySelector('#all-pages').classList.remove('d-none');
+                document.querySelector('#all-pages').classList.remove('invisible');
             }, 1000);
         });
     </script>

@@ -130,7 +130,7 @@
                 <div class="single-slidebar">
                     <h4>Actualités</h4>
                     <div class="blog-list">
-                        <div class="single-blog " style="background:#000 url('img/blog1.jpg');">
+                        <div class="single-blog " style="background:#000 url('../img/blog1.jpg');">
                             <a href="http://www.callinnov.com/la-concurrence-des-destinations-offshores-call-center/" target="_blank">
                                 <h4>La concurrence des destinations offshores call center</h4>
                             </a>
@@ -138,7 +138,7 @@
                                 <p>août 15, 2022</p>
                             </div>
                         </div>
-                        <div class="single-blog " style="background:#000 url(img/blog2.jpg);">
+                        <div class="single-blog " style="background:#000 url(../img/blog2.jpg);">
                             <a href="http://www.callinnov.com/telemarketing-evolution-dun-marche/" target="_blank">
                                 <h4>Home Audio Recording <br>
                                     For Everyone</h4>
@@ -147,7 +147,7 @@
                                 <p>juin 23, 2022</p>
                             </div>
                         </div>
-                        <div class="single-blog" style="background:#000 url(img/blog3.png);">
+                        <div class="single-blog" style="background:#000 url(../img/blog3.png);">
                             <a href="http://www.callinnov.com/call-center/" target="_blank">
                                 <h4>Le Centre d’appel (Call center) s’agrandit</h4>
                             </a>

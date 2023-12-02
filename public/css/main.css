@@ -2377,29 +2377,6 @@ body.mobile-nav-active #mobile-nav-toggle {
     }
 }
 
-/* .p1-gradient-bg,
-.banner-area .overlay-bg,
-.callto-action-area,
-.single-price:hover .price-bottom,
-.single-service:hover,
-.submit-right,
-.submit-left,
-.contact-btns,
-.form-area .primary-btn {
-    background-image: -moz-linear-gradient(0deg, #bfacff 0%, #795fff 100%);
-    background-image: -webkit-linear-gradient(0deg, #bfacff 0%, #795fff 100%);
-    background-image: -ms-linear-gradient(0deg, #bfacff 0%, #795fff 100%);
-} */
-/* 
-.p1-gradient-color,
-.feat-txt h1 {
-    background: -moz-linear-gradient(0deg, #bfacff 0%, #795fff 100%);
-    background: -webkit-linear-gradient(0deg, #bfacff 0%, #795fff 100%);
-    background: -ms-linear-gradient(0deg, #bfacff 0%, #795fff 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-} */
-
 .primary-btn {
     background-color: #ec8f5e;
     line-height: 42px;
