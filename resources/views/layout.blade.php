@@ -15,9 +15,9 @@
         portail d'emploi, base de données d'emploi, annonces de travail, possibilités d'emploi, candidatures, moteur de recherche d'emploi, 
         site d'offres d'emploi, marché du travail, chasse à l'emploi, demandeurs d'emploi, site d'annonces d'emploi, trouver un emploi, 
         plateforme de recherche d'emploi, correspondance d'emploi, site de publication d'emploi">
-    <meta name="google-site-verification" content="QVLLhWTmyC-ICoj3EKYwb6vcM5e2NbwuUNm65V8O9-g">
+    <!-- <meta name="google-site-verification" content="QVLLhWTmyC-ICoj3EKYwb6vcM5e2NbwuUNm65V8O9-g">
     <meta name="google-adsense-account" content="ca-pub-9270875061752923">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9270875061752923" crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9270875061752923" crossorigin="anonymous"></script> -->
     <link rel="canonical" href="https://marocareer.tech/" />
     @include('partials.header')
     <title>MaroCareer</title>
