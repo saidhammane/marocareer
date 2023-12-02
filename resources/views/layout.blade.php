@@ -17,7 +17,7 @@
         plateforme de recherche d'emploi, correspondance d'emploi, site de publication d'emploi">
 
 
-    <link rel="canonical" href="https://marocareer.000webhostapp.com/" />
+    <link rel="canonical" href="https://marocareer.tech/" />
 
     @include('partials.header')
 
