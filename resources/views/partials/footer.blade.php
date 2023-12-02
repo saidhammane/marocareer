@@ -20,12 +20,12 @@
                  <div class="single-footer-widget newsletter">
                      <h6>Newsletter</h6>
                      <p class="text-secondary">Vous pouvez nous faire confiance. Nous n’envoyons que des offres promotionnelles, pas un seul spam.</p>
-                     <div id="mc_embed_signup" class="pt-4">
+                     <div id="mc_embed_signup" class="pt-3">
                          <form id="subscribeForm" class="form-inline" action="{{ url('/storeEmail') }}">
                              @csrf
                              <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                              <div class="d-flex flex-column commentform-area pb-0 w-100">
-                                 <input name="EMAIL" placeholder="Entre Votre Email" class="common-input form-control w-100" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Entre Votre Email '" required type="email">
+                                 <input name="EMAIL" placeholder="Entre Votre Email" class="common-input form-control w-100 py-2" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Entre Votre Email '" required type="email">
                                  <button class="button w-50 ml-auto" type="submit" id="submitButton">Abonner</button>
                              </div>
                              <div class="info"></div>
