@@ -15,40 +15,27 @@
         portail d'emploi, base de données d'emploi, annonces de travail, possibilités d'emploi, candidatures, moteur de recherche d'emploi, 
         site d'offres d'emploi, marché du travail, chasse à l'emploi, demandeurs d'emploi, site d'annonces d'emploi, trouver un emploi, 
         plateforme de recherche d'emploi, correspondance d'emploi, site de publication d'emploi">
-
-
     <link rel="canonical" href="https://marocareer.tech/" />
-
     @include('partials.header')
-
     <title>MaroCareer</title>
-
 </head>
 
 <body>
-    <!-- <div class="loader-content">
-        <div class="loader">
-            <p class="text">
-                MAROCAREER
-            </p>
-        </div>
+    <div class="loader-content">
+        <div class="loader"></div>
     </div>
-    <div class="pages d-none">
-    </div> -->
-    @yield('content')
-    @include('partials.script')
-    <!-- <script>
-        // Show loader initially
-        document.querySelector('.loader-content').style.display = 'flex';
-
-        // Hide loader once the page has loaded
+    <div id="all-pages" class="d-none">
+        @yield('content')
+    </div>
+    <script>
         window.addEventListener('load', function() {
             setTimeout(function() {
                 document.querySelector('.loader-content').style.display = 'none';
-                document.querySelector('.pages').classList.remove('d-none');
-            }, 2000);
+                document.querySelector('#all-pages').classList.remove('d-none');
+            }, 1000);
         });
-    </script> -->
+    </script>
+    @include('partials.script')
 </body>
 
 </html>
