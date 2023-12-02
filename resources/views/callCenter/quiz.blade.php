@@ -103,11 +103,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div class="single-slidebar">
-                    <a href="https://www.moncallcenter.ma/guide/reussir-cv/" target="_blank">
-                        <img src="https://www.moncallcenter.ma/images/reussir-votre-cv.png" class="img-thumbnail" alt="Réussir votre CV" title="Réussir votre CV">
-                    </a>
-                </div> -->
             </div>
         </div>
     </div>
