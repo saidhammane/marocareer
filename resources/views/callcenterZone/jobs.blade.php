@@ -36,7 +36,7 @@
                 @foreach ($jobData as $job)
                 <div class="single-post d-flex align-sm-items-center single-post-start-text">
                     <div class="thumb">
-                        <img src="{{ $job['jobImgLink'] }}" alt="{{ $job['jobTitle'] }}" title="{{ $job['jobTitle'] }}" loading="lazy" height="100" width="100" style="border-radius:15px;">
+                        <img src="{{ $job['jobImgLink'] }}" alt="{{ $job['jobTitle'] }}" title="{{ $job['jobTitle'] }}" loading="lazy" height="100" width="100">
                     </div>
                     <div class="job-container">
                         <div class="details">
