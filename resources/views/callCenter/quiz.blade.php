@@ -61,7 +61,7 @@
                         @php $callCenterRecrut = json_decode($callCenterRecrutJson, true); @endphp
                         @foreach ($callCenterRecrut as $job)
                         <div class="col-6 col-md-4 mt-10 text-center">
-                            <a href="callcenters/{{ $job['title'] }}">
+                            <a href="https://www.moncallcenter.ma//{{ $job['title'] }}" target="_blank">
                                 <img src="{{ $job['imgUrl'] }}" class="img-thumbnail" alt="{{ $job['title'] }}" title="{{ $job['title'] }}" loading="lazy" height="200" width="200">
                             </a>
                         </div>
