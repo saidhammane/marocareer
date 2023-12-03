@@ -57,6 +57,9 @@ body {
     line-height: 1.625em;
     position: relative;
 }
+body.loader-active {
+    overflow: hidden;
+}
 /* loader */
 .loader-content {
     position: absolute;
@@ -3013,6 +3016,7 @@ body.mobile-nav-active #mobile-nav-toggle {
     padding: 10px;
     margin-bottom: 10px;
 }
+
 .sidebar .single-rated img {
     margin-bottom: 20px;
 }

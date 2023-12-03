@@ -5,18 +5,12 @@
 <script src="{{ asset('js/easing.min.js') }}"></script>
 <script src="{{ asset('js/hoverIntent.js') }}"></script>
 <script src="{{ asset('js/superfish.min.js') }}"></script>
-<script src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
 <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('js/jquery.sticky.js') }}"></script>
 <script src="{{ asset('js/jquery.nice-select.min.js') }}"></script>
 <script src="{{ asset('js/parallax.min.js') }}"></script>
 <script src="{{ asset('js/main.js') }}"></script>
 <script src="{{ asset('js/sweetalert2.all.min.js') }}"></script>
-
-
-
-
-
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"

@@ -23,7 +23,7 @@
     <title>MaroCareer</title>
 </head>
 
-<body>
+<body class="loader-active">
     <div class="loader-content">
         <div class="loader"></div>
     </div>
@@ -35,6 +35,7 @@
             setTimeout(function() {
                 document.querySelector('.loader-content').style.display = 'none';
                 document.querySelector('#all-pages').classList.remove('invisible');
+                document.querySelector('body').classList.remove('loader-active');
             }, 1000);
         });
     </script>

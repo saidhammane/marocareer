@@ -7,9 +7,6 @@ $(document).ready(function () {
         header_height_static = $(".site-header.static").outerHeight(),
         fitscreen = window_height - header_height;
 
-    // $(".fullscreen").css("height", window_height);
-    // $(".fitscreen").css("height", fitscreen);
-
     if (document.getElementById("default-select")) {
         $("select").niceSelect();
     }
@@ -21,21 +18,6 @@ $(document).ready(function () {
     if (document.getElementById("default-selects2")) {
         $("select").niceSelect();
     }
-
-    $(".img-pop-up").magnificPopup({
-        type: "image",
-        gallery: {
-            enabled: true,
-        },
-    });
-
-    $(".play-btn").magnificPopup({
-        type: "iframe",
-        mainClass: "mfp-fade",
-        removalDelay: 160,
-        preloader: false,
-        fixedContentPos: false,
-    });
 
     // Initiate superfish on nav menu
     $(".nav-menu").superfish({
@@ -161,7 +143,6 @@ $(document).ready(function () {
             $("#header").removeClass("header-scrolled");
         }
     });
-
     $(".active-relatedjob-carusel").owlCarousel({
         items: 1,
         autoplay: true,
@@ -169,47 +150,46 @@ $(document).ready(function () {
         margin: 30,
         dots: true,
     });
+    // $(".active-review-carusel").owlCarousel({
+    //     items: 2,
+    //     margin: 30,
+    //     autoplay: true,
+    //     loop: true,
+    //     dots: true,
+    //     responsive: {
+    //         0: {
+    //             items: 1,
+    //         },
+    //         480: {
+    //             items: 1,
+    //         },
+    //         768: {
+    //             items: 2,
+    //         },
+    //     },
+    // });
 
-    $(".active-review-carusel").owlCarousel({
-        items: 2,
-        margin: 30,
-        autoplay: true,
-        loop: true,
-        dots: true,
-        responsive: {
-            0: {
-                items: 1,
-            },
-            480: {
-                items: 1,
-            },
-            768: {
-                items: 2,
-            },
-        },
-    });
-
-    $(".active-popular-post-carusel").owlCarousel({
-        items: 2,
-        margin: 30,
-        autoplay: true,
-        loop: true,
-        dots: true,
-        responsive: {
-            0: {
-                items: 1,
-            },
-            480: {
-                items: 1,
-            },
-            768: {
-                items: 1,
-            },
-            961: {
-                items: 2,
-            },
-        },
-    });
+    // $(".active-popular-post-carusel").owlCarousel({
+    //     items: 2,
+    //     margin: 30,
+    //     autoplay: true,
+    //     loop: true,
+    //     dots: true,
+    //     responsive: {
+    //         0: {
+    //             items: 1,
+    //         },
+    //         480: {
+    //             items: 1,
+    //         },
+    //         768: {
+    //             items: 1,
+    //         },
+    //         961: {
+    //             items: 2,
+    //         },
+    //     },
+    // });
 
     //  Start Google map
 
@@ -343,12 +323,14 @@ $(document).ready(function () {
                     icon: "error",
                     text: "Veuillez sélectionner la ville ou le type d’emploi!",
                     customClass: {
-                        container: 'custom-modal-class',
-                    }
+                        container: "custom-modal-class",
+                    },
                 });
             } else {
-                if (city !== "Toutes les villes" && type !== "Type") navigateTo("/Filter/" + city + "/" + type);
-                else if (city !== "Toutes les villes") navigateTo("/Ville/" + city);
+                if (city !== "Toutes les villes" && type !== "Type")
+                    navigateTo("/Filter/" + city + "/" + type);
+                else if (city !== "Toutes les villes")
+                    navigateTo("/Ville/" + city);
                 else navigateTo("/Type/" + type);
             }
         }
@@ -383,7 +365,9 @@ $(document).ready(function () {
     };
 
     var currentNavLink = document.getElementById(navLinkIds[currentUrlSegment]);
-    var currentNavLinkCallCenter = document.getElementById("currentNavCallCenter");
+    var currentNavLinkCallCenter = document.getElementById(
+        "currentNavCallCenter"
+    );
     if (currentNavLink) currentNavLink.classList.add("navbarCurrent");
     else currentNavLinkCallCenter.classList.add("navbarCurrent");
 });
