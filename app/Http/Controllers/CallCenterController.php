@@ -152,7 +152,7 @@ class CallCenterController extends ScrapController
             if ($title && $description) {
                 $jobData[] = [
                     'jobTitle' => $title->nodeValue,
-                    'jobUrl' => 'https://www.moncallcenter.ma/' . $title->getAttribute('href'),
+                    'jobUrl' => $title->getAttribute('href'),
                     'jobImgLink' => 'https://www.moncallcenter.ma/' . $img->getAttribute('src'),
                     'jobDescription' => $description->nodeValue,
                     'jobMetaData' => $metaData->nodeValue,
@@ -190,7 +190,6 @@ class CallCenterController extends ScrapController
     }
     public function getOffersData($city = null, $type = null)
     {
-
         $jobData = [];
         $jobDataCities = [];
         $jobDataTypes = [];
@@ -215,7 +214,7 @@ class CallCenterController extends ScrapController
             if ($title && $description) {
                 $jobData[] = [
                     'jobTitle' => $title->nodeValue,
-                    'jobUrl' => 'https://www.moncallcenter.ma/' . $title->getAttribute('href'),
+                    'jobUrl' => $title->getAttribute('href'),
                     'jobImgLink' => 'https://www.moncallcenter.ma/' . $img->getAttribute('src'),
                     'jobDescription' => $description->nodeValue,
                     'jobMetaData' => $metaData->nodeValue,

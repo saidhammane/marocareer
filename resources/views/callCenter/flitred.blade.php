@@ -26,7 +26,7 @@
                         <div class="details">
                             <div class="title ">
                                 <div class="titles">
-                                    <a href="{{ $job['jobUrl'] }}">
+                                    <a href="/application/{{ basename($job['jobUrl']) }}">
                                         <h4>{{ $job['jobTitle'] }}</h4>
                                     </a>
                                     <h6>{{ $job['jobMetaData'] }}</h6>
