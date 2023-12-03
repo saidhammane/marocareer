@@ -9,11 +9,16 @@
         <div class="row d-flex align-items-center justify-content-start">
             <div class="head-img col-lg-12">
                 @if (isset($jobDataJson))
-                @php $jobData = json_decode($jobDataJson, true); @endphp
-                @if (count($jobData) > 0)
-                <img src="{{ $jobData[0]['imageCallCenter'] }}" class="img-thumbnail" alt="{{ $callCenter }}" title="{{ $callCenter }}" loading="lazy">
-                <h1 class="ml-4 mt-0 fw-bold text-white">Call Center</h1>
+                    @php $jobData = json_decode($jobDataJson, true); @endphp
+                    @if (count($jobData) > 0)
+                        <img src="{{ $jobData[0]['imageCallCenter'] }}" class="img-thumbnail" alt="{{ $callCenter }}" title="{{ $callCenter }}" loading="lazy">
+                    @endif
                 @endif
+                @if (isset($jobDataNameJson))
+                    @php $jobDataName = json_decode($jobDataNameJson, true); @endphp
+                    @foreach ($jobDataName as $jobName)
+                        <h1 class="ml-4 mt-0 fw-bold text-white">{{ $jobName['jobCallCenterName'] }}</h1>
+                    @endforeach
                 @endif
             </div>
         </div>

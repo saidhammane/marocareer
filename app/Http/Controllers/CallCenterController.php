@@ -14,6 +14,7 @@ class CallCenterController extends ScrapController
 
         
         $jobData = [];
+        $jobDataName = [];
 
         $client = new Client();
         $dom = new DOMDocument();
@@ -24,6 +25,8 @@ class CallCenterController extends ScrapController
         $jobTitleLink = $xpath->query("/html/body/div[2]/div[1]/div[1]/div/div/div[1]/div[2]/h2/a");
         $jobImgLink = $xpath->query("//div/div/a[@class=\"offreUrl\"]/img");
         $jobMetaData = $xpath->query("/html/body/div[2]/div[1]/div[1]/div/div/div[1]/div[2]/div[1]/span");
+        $jobCallCenterName = $xpath->query("/html/body/div[1]/div[2]/div/div/h2/text()");
+        
 
         for ($i = 0; $i < $jobMetaData->length; $i++) {
             $jobData[] = [
@@ -34,9 +37,15 @@ class CallCenterController extends ScrapController
                 'metaData' => $jobMetaData[$i]->nodeValue,
             ];
         }
+        for ($i = 0; $i < $jobCallCenterName->length; $i++) {
+            $jobDataName[] = [
+                'jobCallCenterName' => $jobCallCenterName[$i]->nodeValue,
+            ];
+        }
         
         $jobDataJson = json_encode($jobData);
-        return view('callCenterZone.jobs', ['jobDataJson' => $jobDataJson, "callCenter" => $callCenter]);   
+        $jobDataNameJson = json_encode($jobDataName);
+        return view('callCenterZone.jobs', ['jobDataJson' => $jobDataJson, "callCenter" => $callCenter, 'jobDataNameJson' => $jobDataNameJson]);
     }
     public function jobApply($url = null)
     {
@@ -528,6 +537,4 @@ class CallCenterController extends ScrapController
         return view("quiz.home", ["quizDataJson" => $quizDataJson, "title"=> $quizFormattedTitle, "url" => $title]);
 
     }
-
-
 }
