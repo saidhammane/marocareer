@@ -8,8 +8,8 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Votre carrière est notre priorité" />
     <meta property="og:description" content="Le site de recrutement des centres d'appels au Maroc" />
-    <meta property="og:image" content="https://marocareer.000webhostapp.com/img/logo_32_32.png" />
-    <meta property="og:url" content="https://marocareer.000webhostapp.com/" />
+    <meta property="og:image" content="https://marocareer.tech/img/logo_32_32.png" />
+    <meta property="og:url" content="https://marocareer.tech" />
     <meta property="og:site_name" content="marocareer" />
     <meta name="keywords" content="recherche d'emploi, opportunités d'emploi, offres de carrière, annonces d'emploi, postes vacants, chercheur d'emploi, 
         portail d'emploi, base de données d'emploi, annonces de travail, possibilités d'emploi, candidatures, moteur de recherche d'emploi, 
