@@ -2469,7 +2469,7 @@ body.mobile-nav-active #mobile-nav-toggle {
     height: auto;
     padding: 100px 0;
 }
-
+.head-img h1,
 .banner-content h1 {
     font-size: 48px;
     font-weight: bold;
@@ -2482,6 +2482,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 @media (max-width: 991.98px) {
+    .head-img h1,
     .banner-content h1 {
         font-size: 36px;
     }
@@ -2494,12 +2495,14 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 @media (max-width: 1199.98px) {
+    .head-img h1,
     .banner-content h1 {
         font-size: 45px;
     }
 }
 
 @media (max-width: 414px) {
+    .head-img h1,
     .banner-content h1 {
         font-size: 32px;
     }
@@ -4650,4 +4653,25 @@ div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
 .form-control:focus {
     border-color: #ec8f5e !important;
     box-shadow: 0 0 0 0.2rem rgba(236, 143, 94, 0.25) !important;
+}
+.head-img {
+    padding-top: 50px;
+    padding-bottom: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+.head-img img{
+    width: 120px;
+    height: 120px;
+}
+@media (max-width: 350px) {
+    .head-img {
+        flex-direction: column;
+        align-items: start;
+    }
+    .head-img h1{
+        margin-left: 0 !important;
+        margin-top: 15px !important;
+    }
 }
