@@ -12,7 +12,7 @@
                 <h1 class="text-white">
                     Quiz
                 </h1>
-                <p class="text-white"><a href="/">Accueill </a> <span class="lnr lnr-arrow-right"></span> <a href="/quiz"> Quiz </a></p>
+                <p class="text-white"><a href="/">Accueill </a> - <a href="/quiz"> Quiz </a></p>
             </div>
         </div>
     </div>

@@ -31,4 +31,17 @@ Route::get('/storeEmail', [EmailSubscriptionController::class, 'subscribe'])->na
 Route::get('/contact', [EmailSubscriptionController::class, 'contact'])->name('contact');
 Route::get('send-mail', [MailController::class, 'submitForm']);
 
+Route::group(['domain' => 'marocareer.com'], function () {
+    Route::get('{path}', function ($path) {
+        return redirect()->to('https://www.marocareer.com/' . $path, 301);
+    })->where('path', '.*');
+});
+
+// Redirect from www to non-www
+Route::group(['domain' => 'www.marocareer.com'], function () {
+    Route::get('{path}', function ($path) {
+        return redirect()->to('https://marocareer.com/' . $path, 301);
+    })->where('path', '.*');
+});
+
 

@@ -12,7 +12,7 @@
                 <h1 class="text-white">
                     Contactez-nous
                 </h1>
-                <p class="text-white"><a href="/">Accueill </a> <span class="lnr lnr-arrow-right"></span> <a href="/contact"> Contact </a></p>
+                <p class="text-white"><a href="/">Accueill </a> - <a href="/contact"> Contact </a></p>
 
                 <!-- <div class="text-center">
                         <img src="{{ asset('img/customer-care.png') }}" class="rounded" alt="contact image marocareer"

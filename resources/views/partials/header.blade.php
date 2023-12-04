@@ -4,7 +4,6 @@
 <link rel="icon" type="image/x-icon" href="{{ asset('img/logo_32_32.png') }}">
 
 <link rel="stylesheet" href="{{ asset('css/linearicons.css') }}">
-<link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
 <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
 <link rel="stylesheet" href="{{ asset('css/nice-select.css') }}">
 <link rel="stylesheet" href="{{ asset('css/owl.carousel.css') }}">

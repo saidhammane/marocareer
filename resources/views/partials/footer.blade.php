@@ -44,28 +44,7 @@
                  </script>
                  Tous droits réservés | made with <i class="fa fa-heart-o text-primary" aria-hidden="true"></i> par <a href="/" target="_blank" class="text-primary">MaroCareer</a>
              </p>
-             <div class="col-lg-4 col-sm-12 footer-social">
-                 <a href="/"><i class="fa fa-facebook"></i></a>
-                 <a href="/"><i class="fa fa-twitter"></i></a>
-                 <a href="/"><i class="fa fa-dribbble"></i></a>
-                 <a href="/"><i class="fa fa-behance"></i></a>
-             </div>
          </div>
      </div>
  </footer>
-
- <script>
-     //  $.ajax({
-     //      url: $('#subscribeForm').attr('action'),
-     //      method: "POST",
-     //      data: $(this).serialize(),
-     //      success: function(response) {
-     //          alert(response.message); 
-     //      },
-     //      error: function(xhr, status, error) {
-     //          // Handle errors, if any
-     //          console.error(error);
-     //      }
-     //  });
- </script>
  <!-- End footer Area -->
