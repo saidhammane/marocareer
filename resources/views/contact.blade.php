@@ -13,11 +13,6 @@
                     Contactez-nous
                 </h1>
                 <p class="text-white"><a href="/">Accueill </a> - <a href="/contact"> Contact </a></p>
-
-                <!-- <div class="text-center">
-                        <img src="{{ asset('img/customer-care.png') }}" class="rounded" alt="contact image marocareer"
-                            loading="lazy" title="contact image marocareer" height="230" width="230">
-                    </div> -->
             </div>
         </div>
     </div>
@@ -33,7 +28,7 @@
             <div class="col-lg-6">
                 <div class="menu-content mb-4">
                     <div class="title pb-20 text-start">
-                        <h2>Let's talk about everything!</h2>
+                        <h2>Parlons de tout !</h2>
                     </div>
                     <p class="mt-3">Bienvenue sur Marocareer, votre porte d'entrée vers des opportunités professionnelles passionnantes au Maroc. Nous apprécions vos retours, questions et interactions. N'hésitez pas à nous contacter via les coordonnées ci-dessous :</p>
                 </div>
@@ -55,7 +50,7 @@
                 </form>
             </div>
             <div class="col-lg-6 text-center">
-                <img src="{{ asset('img/contact/img-4.svg') }}" alt="contact service" title="contact service" width="80%" height="100%" class="fluid-img" loading="lazy">
+                <img src="{{ asset('img/contact/img-1.svg') }}" alt="contact service" title="contact service" width="80%" height="100%" class="fluid-img" loading="lazy">
             </div>
         </div>
     </div>
