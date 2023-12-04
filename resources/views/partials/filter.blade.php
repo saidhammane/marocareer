@@ -21,7 +21,7 @@
                 @endswitch
                 <form class="serach-form-area">
                     <div class="row justify-content-center form-wrap">
-                        <div class="col-lg-5 form-cols">
+                        <div class="col-lg-4 col-xl-5 form-cols">
                             <div class="default-select" id="default-selects2">
                                 <select id="cities">
                                     <option>Toutes les villes</option>
@@ -38,7 +38,7 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-5 form-cols">
+                        <div class="col-lg-4 col-xl-5 form-cols">
                             <div class="default-select" id="default-selects2">
                                 <select id="type">
                                     <option>Type</option>
@@ -55,8 +55,8 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-2 form-cols">
-                            <button type="button" class="search-btn" id="searchBtnHome">
+                        <div class="col-lg-3 col-xl-2 form-cols">
+                            <button type="button" class="search-btn py-2 py-lg-0" id="searchBtnHome">
                                 <span class="lnr lnr-magnifier"></span> Rechercher
                             </button>
                         </div>

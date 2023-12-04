@@ -87,7 +87,7 @@
                         @php $jobDataTop = json_decode($jobDataJsonTop, true); @endphp
                         @foreach ($jobDataTop as $job)
                         <div class="single-rated">
-                            <img class="img-fluid" src="{{ $job['ImgLink'] }}" loading="lazy" alt="{{ $job['jobTitle'] }}" title="{{ $job['jobTitle'] }}" width="100" height="100" style="border-radius:15px;">
+                            <img class="img-fluid" src="{{ $job['ImgLink'] }}" loading="lazy" alt="{{ $job['jobTitle'] }}" title="{{ $job['jobTitle'] }}" width="100" height="100">
                             <a href="/application/{{ $lastSegmentUrl }}">
                                 <h4>{{ $job['jobTitle'] }}</h4>
                             </a>

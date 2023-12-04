@@ -23,22 +23,13 @@
     <title>MaroCareer</title>
 </head>
 
-<body class="loader-active">
+<body>
     <div class="loader-content">
         <div class="loader"></div>
     </div>
-    <div id="all-pages" class="invisible">
+    <div id="all-pages" class="d-none">
         @yield('content')
     </div>
-    <script>
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                document.querySelector('.loader-content').style.display = 'none';
-                document.querySelector('#all-pages').classList.remove('invisible');
-                document.querySelector('body').classList.remove('loader-active');
-            }, 1000);
-        });
-    </script>
     @include('partials.script')
 </body>
 

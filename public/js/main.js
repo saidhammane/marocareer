@@ -1,6 +1,18 @@
+window.addEventListener("load", function () {
+    setTimeout(function () {
+        document.querySelector(".loader-content").style.display = "none";
+        document.querySelector("#all-pages").classList.remove("d-none");
+        $(".active-relatedjob-carusel").owlCarousel({
+            items: 1,
+            autoplay: true,
+            loop: true,
+            margin: 30,
+            dots: true,
+        });
+    }, 1000);
+});
 $(document).ready(function () {
     "use strict";
-
     var window_width = $(window).width(),
         window_height = window.innerHeight,
         header_height = $(".default-header").height(),
@@ -143,53 +155,6 @@ $(document).ready(function () {
             $("#header").removeClass("header-scrolled");
         }
     });
-    $(".active-relatedjob-carusel").owlCarousel({
-        items: 1,
-        autoplay: true,
-        loop: true,
-        margin: 30,
-        dots: true,
-    });
-    // $(".active-review-carusel").owlCarousel({
-    //     items: 2,
-    //     margin: 30,
-    //     autoplay: true,
-    //     loop: true,
-    //     dots: true,
-    //     responsive: {
-    //         0: {
-    //             items: 1,
-    //         },
-    //         480: {
-    //             items: 1,
-    //         },
-    //         768: {
-    //             items: 2,
-    //         },
-    //     },
-    // });
-
-    // $(".active-popular-post-carusel").owlCarousel({
-    //     items: 2,
-    //     margin: 30,
-    //     autoplay: true,
-    //     loop: true,
-    //     dots: true,
-    //     responsive: {
-    //         0: {
-    //             items: 1,
-    //         },
-    //         480: {
-    //             items: 1,
-    //         },
-    //         768: {
-    //             items: 1,
-    //         },
-    //         961: {
-    //             items: 2,
-    //         },
-    //     },
-    // });
 
     //  Start Google map
 

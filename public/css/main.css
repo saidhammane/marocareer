@@ -57,9 +57,7 @@ body {
     line-height: 1.625em;
     position: relative;
 }
-body.loader-active {
-    overflow: hidden;
-}
+
 /* loader */
 .loader-content {
     position: absolute;
@@ -2563,7 +2561,7 @@ body.mobile-nav-active #mobile-nav-toggle {
     font-size: 16px;
 }
 
-@media (max-width: 960px) {
+@media (max-width: 991.98px) {
     .banner-content .form-cols {
         margin-bottom: 30px;
     }
@@ -2572,20 +2570,6 @@ body.mobile-nav-active #mobile-nav-toggle {
     }
 }
 
-/* .primary-btn {
-    background: #fff;
-    border: 1px solid transparent;
-    color: #222;
-    padding-left: 40px;
-    padding-right: 40px;
-    border-radius: 50px;
-} */
-
-/* .primary-btn:hover {
-    border: 1px solid #fff;
-    background: transparent;
-    color: #fff;
-} */
 
 @media (max-width: 960px) {
     .post-list {
@@ -4679,3 +4663,4 @@ div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
         margin-top: 15px !important;
     }
 }
+

@@ -7,7 +7,10 @@
 <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
 <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
 <link rel="stylesheet" href="{{ asset('css/nice-select.css') }}">
-<link rel="stylesheet" href="{{ asset('css/nice-select.css') }}">
 <link rel="stylesheet" href="{{ asset('css/owl.carousel.css') }}">
 <link rel="stylesheet" href="{{ asset('css/sweetalert2.min.css') }}">
 <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+
+
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"> -->

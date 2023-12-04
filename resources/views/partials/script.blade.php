@@ -6,6 +6,10 @@
 <script src="{{ asset('js/hoverIntent.js') }}"></script>
 <script src="{{ asset('js/superfish.min.js') }}"></script>
 <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script> -->
+
+
 <script src="{{ asset('js/jquery.sticky.js') }}"></script>
 <script src="{{ asset('js/jquery.nice-select.min.js') }}"></script>
 <script src="{{ asset('js/parallax.min.js') }}"></script>
