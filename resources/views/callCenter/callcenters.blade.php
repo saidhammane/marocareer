@@ -54,7 +54,7 @@
                     <div class="col-lg-12 post-list">
                         <div class="single-post d-flex flex-row align-sm-items-center">
                             <div class="thumb">
-                                <a href="https://www.moncallcenter.ma/{{ basename($job['url']) }} target="_blank"">
+                                <a href="https://www.moncallcenter.ma/{{ basename($job['url']) }}" target="_blank">
                                     <img src="{{ $job['ImgLink'] }}" alt="{{ $job['name'] }}" title="{{ $job['name'] }}" loading="lazy" height="100" width="100">
                                 </a>
                             </div>

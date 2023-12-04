@@ -24,13 +24,8 @@
                     <div class="job-container">
                         <div class="details">
                             <div class="title ">
-                                @php
-                                $url = $job['jobUrl'];
-                                $urlSegments = explode('/', parse_url($url, PHP_URL_PATH));
-                                $lastSegmentUrl = end($urlSegments);
-                                @endphp
                                 <div class="titles">
-                                    <a href="/application/{{ $lastSegmentUrl }}">
+                                    <a href="/application/{{ basename($job['jobUrl']) }}">
                                         <h4>{{ $job['jobTitle'] }}</h4>
                                     </a>
                                     <h6>{{ $job['jobDate'] }}</h6>
@@ -88,10 +83,10 @@
                         @foreach ($jobDataTop as $job)
                         <div class="single-rated">
                             <img class="img-fluid" src="{{ $job['ImgLink'] }}" loading="lazy" alt="{{ $job['jobTitle'] }}" title="{{ $job['jobTitle'] }}" width="100" height="100">
-                            <a href="/application/{{ $lastSegmentUrl }}">
+                            <a href="/application/{{ basename($job['jobUrl']) }}">
                                 <h4>{{ $job['jobTitle'] }}</h4>
                             </a>
-                            <a href="/application/{{ $lastSegmentUrl }}" class="btns text-uppercase">POSTULER</a>
+                            <a href="/application/{{ basename($job['jobUrl']) }}" class="btns text-uppercase">POSTULER</a>
                         </div>
                         @endforeach
                         @endif
