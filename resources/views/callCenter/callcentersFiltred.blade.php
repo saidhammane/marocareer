@@ -15,13 +15,13 @@
                                 <select id="citiesCallCnter">
                                     <option>Villes</option>
                                     @if (isset($jobDataJsonCity))
-                                    @php $jobDataCities = json_decode($jobDataJsonCity, true); @endphp
-                                    @foreach ($jobDataCities as $job)
-                                    @if ($job['jobCity'] == 'Ville')
-                                    @continue
-                                    @endif
-                                    <option value="{{ $job['jobCity'] }}">{{ $job['jobCity'] }}</option>
-                                    @endforeach
+                                        @php $jobDataCities = json_decode($jobDataJsonCity, true); @endphp
+                                        @foreach ($jobDataCities as $job)
+                                            @if ($job['jobCity'] == 'Ville')
+                                                @continue
+                                            @endif
+                                            <option value="{{ $job['jobCity'] }}">{{ $job['jobCity'] }}</option>
+                                        @endforeach
                                     @endif
                                 </select>
                             </div>
@@ -54,7 +54,7 @@
                     <div class="col-lg-12 post-list">
                         <div class="single-post d-flex flex-row align-sm-items-center">
                             <div class="thumb">
-                                <a href="{{ $job['url'] }}" target="_blank">
+                                <a href="https://www.moncallcenter.ma/{{ $job['url'] }}" target="_blank">
                                     <img src="{{ $job['ImgLink'] }}" alt="{{ $job['name'] }}" title="{{ $job['name'] }}" height="100" width="100" loading="lazy">
                                 </a>
                             </div>
@@ -63,7 +63,7 @@
                                     <div class="title">
                                         <h4>{{ $job['name'] }}</h4>
                                         <p>{{ $job['description'] }}</p>
-                                        <a href="{{ $job['offresUrl'] }}" class="button d-block" target="_blank">{{ $job['offres'] }}</a>
+                                        <a href="/callcenters/{{ $job['url'] }}/offres-emploi" class="button d-block" >{{ $job['offres'] }}</a>
                                     </div>
                                 </div>
                             </div>

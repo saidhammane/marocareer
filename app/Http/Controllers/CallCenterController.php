@@ -375,8 +375,7 @@ class CallCenterController extends ScrapController
                 'name' => $name->nodeValue,
                 'description' => $description->nodeValue,
                 'offres' => $offres->nodeValue,
-                'offresUrl' => 'https://www.moncallcenter.ma/' . $offres->getAttribute('href'),
-                'url' => 'https://www.moncallcenter.ma/' . $url->getAttribute('href'),
+                'url' => $url->getAttribute('href'),
                 'ImgLink' => 'https://www.moncallcenter.ma/' . $imgLink->getAttribute('src'),
             ];
         }

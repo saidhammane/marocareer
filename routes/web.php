@@ -32,9 +32,3 @@ Route::get('/contact', [EmailSubscriptionController::class, 'contact'])->name('c
 Route::get('send-mail', [MailController::class, 'submitForm']);
 
 
-
-// Auth::routes();
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-// Route::delete('/delete/email/{id}', [EmailSubscriptionController::class, 'destroy'])->name('delete.email');
-
