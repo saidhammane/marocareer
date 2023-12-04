@@ -12,7 +12,6 @@ window.addEventListener("load", function () {
     }, 1000);
 });
 $(document).ready(function () {
-    "use strict";
     var window_width = $(window).width(),
         window_height = window.innerHeight,
         header_height = $(".default-header").height(),
@@ -32,12 +31,12 @@ $(document).ready(function () {
     }
 
     // Initiate superfish on nav menu
-    $(".nav-menu").superfish({
-        animation: {
-            opacity: "show",
-        },
-        speed: 400,
-    });
+    // $(".nav-menu").superfish({
+    //     animation: {
+    //         opacity: "show",
+    //     },
+    //     speed: 400,
+    // });
 
     // Mobile Navigation
     if ($("#nav-menu-container").length) {
