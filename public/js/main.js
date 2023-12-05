@@ -49,7 +49,7 @@ $(document).ready(function () {
         });
         $("body").append($mobile_nav);
         $("body").prepend(
-            '<button type="button" id="mobile-nav-toggle"><i class="lnr lnr-menu"></i></button>'
+            '<button type="button" id="mobile-nav-toggle"><i class="fa-solid fa-bars"></i></button>'
         );
         $("body").append('<div id="mobile-body-overly"></div>');
         $("#mobile-nav")
@@ -64,7 +64,7 @@ $(document).ready(function () {
 
         $(document).on("click", "#mobile-nav-toggle", function (e) {
             $("body").toggleClass("mobile-nav-active");
-            $("#mobile-nav-toggle i").toggleClass("lnr-cross lnr-menu");
+            $("#mobile-nav-toggle i").toggleClass("fa-regular fa-circle-xmark");
             $("#mobile-body-overly").toggle();
         });
 
@@ -76,7 +76,7 @@ $(document).ready(function () {
             ) {
                 if ($("body").hasClass("mobile-nav-active")) {
                     $("body").removeClass("mobile-nav-active");
-                    $("#mobile-nav-toggle i").toggleClass("lnr-cross lnr-menu");
+                    $("#mobile-nav-toggle i").toggleClass("fa-regular fa-circle-xmark");
                     $("#mobile-body-overly").fadeOut();
                 }
             }

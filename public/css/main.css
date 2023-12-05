@@ -65,7 +65,7 @@ body {
     height: 100vh;
     top: 0;
     left: 0;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 1);
     z-index: 10000;
     overflow: hidden;
     display: flex;
@@ -2553,10 +2553,10 @@ body.mobile-nav-active #mobile-nav-toggle {
 .banner-content .form-wrap .search-btn:hover {
     background-color: #994d1c;
 }
-.banner-content .form-wrap .search-btn span {
+.banner-content .form-wrap .search-btn i {
     transition: all 0.2s ease-in-out;
 }
-.banner-content .form-wrap .search-btn:hover span {
+.banner-content .form-wrap .search-btn:hover i {
     margin-right: 5px;
     font-size: 16px;
 }

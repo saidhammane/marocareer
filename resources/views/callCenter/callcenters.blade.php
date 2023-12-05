@@ -28,7 +28,7 @@
                         </div>
                         <div class="col-lg-2 form-cols">
                             <button type="button" class="search-btn" id="searchBtnCallCnter">
-                                <span class="lnr lnr-magnifier"></span> Rechercher
+                                <i class="fa-solid fa-magnifying-glass"></i> Rechercher
                             </button>
                         </div>
                     </div>

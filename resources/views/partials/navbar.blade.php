@@ -13,7 +13,7 @@
                     <li><a href="/contact" id="currentNavContact">Contact</a></li>
                     <li><a href="/centre-appelle" id="currentNavCallCenter">Centres d'appels</a></li>
                 </ul>
-            </nav><!-- #nav-menu-container -->
+            </nav>
         </div>
     </div>
 </header>

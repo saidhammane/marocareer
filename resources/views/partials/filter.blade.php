@@ -57,7 +57,7 @@
 
                         <div class="col-lg-3 col-xl-2 form-cols">
                             <button type="button" class="search-btn py-2 py-lg-0" id="searchBtnHome">
-                                <span class="lnr lnr-magnifier"></span> Rechercher
+                                <i class="fa-solid fa-magnifying-glass"></i> Rechercher
                             </button>
                         </div>
                     </div>
