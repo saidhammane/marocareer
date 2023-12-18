@@ -42,7 +42,7 @@
                  <script>
                      document.write(new Date().getFullYear());
                  </script>
-                 Tous droits réservés | made with <i class="fa fa-heart-o text-primary" aria-hidden="true"></i> par <a href="/" target="_blank" class="text-primary">MaroCareer</a>
+                 Tous droits réservés | <a href="/" target="_blank" class="text-primary">MaroCareer</a>
              </p>
          </div>
      </div>
