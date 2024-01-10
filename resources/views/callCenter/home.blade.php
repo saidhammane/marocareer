@@ -7,12 +7,6 @@
 <!-- Start post Area -->
 <section class="post-area section-gap">
     <div class="container">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9270875061752923" crossorigin="anonymous"></script>
-        <!-- ads final -->
-        <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-9270875061752923" data-ad-slot="3038760132"></ins>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
         <div class="row justify-content-center d-flex my-5">
             <div class="col-lg-8 post-list">
                 <div class="menu-content pb-30 col-lg-12">
