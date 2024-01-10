@@ -9,16 +9,16 @@
         <div class="row d-flex align-items-center justify-content-start">
             <div class="head-img col-lg-12">
                 @if (isset($jobDataJson))
-                    @php $jobData = json_decode($jobDataJson, true); @endphp
-                    @if (count($jobData) > 0)
-                        <img src="{{ $jobData[0]['imageCallCenter'] }}" class="img-thumbnail" alt="{{ $callCenter }}" title="{{ $callCenter }}" loading="lazy">
-                    @endif
+                @php $jobData = json_decode($jobDataJson, true); @endphp
+                @if (count($jobData) > 0)
+                <img src="{{ $jobData[0]['imageCallCenter'] }}" class="img-thumbnail" alt="{{ $callCenter }}" title="{{ $callCenter }}" loading="lazy">
+                @endif
                 @endif
                 @if (isset($jobDataNameJson))
-                    @php $jobDataName = json_decode($jobDataNameJson, true); @endphp
-                    @foreach ($jobDataName as $jobName)
-                        <h1 class="ml-4 mt-0 fw-bold text-white">{{ $jobName['jobCallCenterName'] }}</h1>
-                    @endforeach
+                @php $jobDataName = json_decode($jobDataNameJson, true); @endphp
+                @foreach ($jobDataName as $jobName)
+                <h1 class="ml-4 mt-0 fw-bold text-white">{{ $jobName['jobCallCenterName'] }}</h1>
+                @endforeach
                 @endif
             </div>
         </div>
@@ -66,36 +66,38 @@
                 @endforeach
                 @endif
             </div>
-            <div class="col-lg-4 sidebar">
-                <div class="single-slidebar">
-                    <div class="menu-content mb-4">
-                        <div class="title text-start">
-                            <h4>Centres d’appels par ville</h4>
+            <div class="col-lg-4">
+                <div class="sidebar">
+                    <div class="single-slidebar">
+                        <div class="menu-content mb-4">
+                            <div class="title text-start">
+                                <h4>Centres d’appels par ville</h4>
+                            </div>
                         </div>
+                        <ul class="cat-list">
+                            <li><a class="justify-content-between d-flex" href="/Ville/Casablanca" target="">
+                                    <p>Casablanca</p>
+                                </a></li>
+                            <li><a class="justify-content-between d-flex" href="/Ville/Rabat">
+                                    <p>Rabat</p>
+                                </a></li>
+                            <li><a class="justify-content-between d-flex" href="/Ville/Tanger">
+                                    <p>Tanger</p>
+                                </a></li>
+                            <li><a class="justify-content-between d-flex" href="/Ville/Kenitra">
+                                    <p>Kenitra</p>
+                                </a></li>
+                            <li><a class="justify-content-between d-flex" href="/Ville/Mohammedia">
+                                    <p>Mohammedia</p>
+                                </a></li>
+                            <li><a class="justify-content-between d-flex" href="/Ville/Marrakech">
+                                    <p>Marrakech</p>
+                                </a></li>
+                            <li><a class="justify-content-between d-flex" href="/Ville/Meknes">
+                                    <p>Meknes</p>
+                                </a></li>
+                        </ul>
                     </div>
-                    <ul class="cat-list">
-                        <li><a class="justify-content-between d-flex" href="/Ville/Casablanca" target="">
-                                <p>Casablanca</p>
-                            </a></li>
-                        <li><a class="justify-content-between d-flex" href="/Ville/Rabat">
-                                <p>Rabat</p>
-                            </a></li>
-                        <li><a class="justify-content-between d-flex" href="/Ville/Tanger">
-                                <p>Tanger</p>
-                            </a></li>
-                        <li><a class="justify-content-between d-flex" href="/Ville/Kenitra">
-                                <p>Kenitra</p>
-                            </a></li>
-                        <li><a class="justify-content-between d-flex" href="/Ville/Mohammedia">
-                                <p>Mohammedia</p>
-                            </a></li>
-                        <li><a class="justify-content-between d-flex" href="/Ville/Marrakech">
-                                <p>Marrakech</p>
-                            </a></li>
-                        <li><a class="justify-content-between d-flex" href="/Ville/Meknes">
-                                <p>Meknes</p>
-                            </a></li>
-                    </ul>
                 </div>
             </div>
         </div>
