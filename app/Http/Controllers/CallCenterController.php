@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use DOMDocument;
 use DOMXPath;
+use Exception;
 use GuzzleHttp\Client;
 
 class CallCenterController extends ScrapController
@@ -142,37 +143,42 @@ class CallCenterController extends ScrapController
         $jobImgLink = $xpath->query("//div/div/a[@class=\"offreUrl\"]/img");
         $jobMetaData = $xpath->query("//*[@id=\"statuts\"]/div/div[1]/div[2]/div[1]/span");
 
-        for ($i = 0; $i < $jobTitleLink->length; $i++) {
-
-            $title = $jobTitleLink[$i];
-            $description = $jobDescription[$i];
-            $img = $jobImgLink[$i];
-            $metaData = $jobMetaData[$i];
-
-            if ($title && $description) {
-                $jobData[] = [
-                    'jobTitle' => $title->nodeValue,
-                    'jobUrl' => $title->getAttribute('href'),
-                    'jobImgLink' => 'https://www.moncallcenter.ma/' . $img->getAttribute('src'),
-                    'jobDescription' => $description->nodeValue,
-                    'jobMetaData' => $metaData->nodeValue,
+        try{
+            $jobCity = $xpath->query("//*[@id=\"Ville\"]/option");
+            for ($i = 0; $i < $jobCity->length; $i++) {
+                $City = $jobCity[$i];
+                $jobDataCities[] = [
+                    'jobCity' => $City->nodeValue,
                 ];
             }
-        }
+            $jobType = $xpath->query("//*[@id=\"Type\"]/option");
+            for ($i = 0; $i < $jobType->length; $i++) {
+                $Type = $jobType[$i];
+                $jobDataTypes[] = [
+                    'jobType' => $Type->nodeValue,
+                ];
+            }
+    
+            for ($i = 0; $i < $jobTitleLink->length; $i++) {
+    
+                $title = $jobTitleLink[$i];
+                $description = $jobDescription[$i];
+                $img = $jobImgLink[$i];
+                $metaData = $jobMetaData[$i];
+    
+                if ($title && $description) {
+                    $jobData[] = [
+                        'jobTitle' => $title->nodeValue,
+                        'jobUrl' => $title->getAttribute('href'),
+                        'jobImgLink' => 'https://www.moncallcenter.ma/' . $img->getAttribute('src'),
+                        'jobDescription' => $description->nodeValue,
+                        'jobMetaData' => $metaData->nodeValue,
+                    ];
+                }
+            }
 
-        $jobCity = $xpath->query("//*[@id=\"Ville\"]/option");
-        for ($i = 0; $i < $jobCity->length; $i++) {
-            $City = $jobCity[$i];
-            $jobDataCities[] = [
-                'jobCity' => $City->nodeValue,
-            ];
-        }
-        $jobType = $xpath->query("//*[@id=\"Type\"]/option");
-        for ($i = 0; $i < $jobType->length; $i++) {
-            $Type = $jobType[$i];
-            $jobDataTypes[] = [
-                'jobType' => $Type->nodeValue,
-            ];
+        }catch(Exception $ex){
+            
         }
 
         $jobDataJson = json_encode($jobData);
@@ -204,37 +210,44 @@ class CallCenterController extends ScrapController
         $jobImgLink = $xpath->query("//div/div/a[@class=\"offreUrl\"]/img");
         $jobMetaData = $xpath->query("//*[@id=\"statuts\"]/div/div[1]/div[2]/div[1]/span");
 
-        for ($i = 0; $i < $jobTitleLink->length; $i++) {
-
-            $title = $jobTitleLink[$i];
-            $description = $jobDescription[$i];
-            $img = $jobImgLink[$i];
-            $metaData = $jobMetaData[$i];
-
-            if ($title && $description) {
-                $jobData[] = [
-                    'jobTitle' => $title->nodeValue,
-                    'jobUrl' => $title->getAttribute('href'),
-                    'jobImgLink' => 'https://www.moncallcenter.ma/' . $img->getAttribute('src'),
-                    'jobDescription' => $description->nodeValue,
-                    'jobMetaData' => $metaData->nodeValue,
+        try {
+            
+            $jobCity = $xpath->query("//*[@id=\"Ville\"]/option");
+            for ($i = 0; $i < $jobCity->length; $i++) {
+                $City = $jobCity[$i];
+                $jobDataCities[] = [
+                    'jobCity' => $City->nodeValue,
                 ];
             }
-        }
+            $jobType = $xpath->query("//*[@id=\"Type\"]/option");
+            for ($i = 0; $i < $jobType->length; $i++) {
+                $Type = $jobType[$i];
+                $jobDataTypes[] = [
+                    'jobType' => $Type->nodeValue,
+                ];
+            }
+            for ($i = 0; $i < $jobTitleLink->length; $i++) {
 
-        $jobCity = $xpath->query("//*[@id=\"Ville\"]/option");
-        for ($i = 0; $i < $jobCity->length; $i++) {
-            $City = $jobCity[$i];
-            $jobDataCities[] = [
-                'jobCity' => $City->nodeValue,
-            ];
+                $title = $jobTitleLink[$i];
+                $description = $jobDescription[$i];
+                $img = $jobImgLink[$i];
+                $metaData = $jobMetaData[$i];
+    
+                if ($title && $description) {
+                    $jobData[] = [
+                        'jobTitle' => $title->nodeValue,
+                        'jobUrl' => $title->getAttribute('href'),
+                        'jobImgLink' => 'https://www.moncallcenter.ma/' . $img->getAttribute('src'),
+                        'jobDescription' => $description->nodeValue,
+                        'jobMetaData' => $metaData->nodeValue,
+                    ];
+                }
+            }
+    
         }
-        $jobType = $xpath->query("//*[@id=\"Type\"]/option");
-        for ($i = 0; $i < $jobType->length; $i++) {
-            $Type = $jobType[$i];
-            $jobDataTypes[] = [
-                'jobType' => $Type->nodeValue,
-            ];
+        
+        catch(Exception $e) {
+            //echo 'Message: ' .$e->getMessage();
         }
 
         $jobDataJson = json_encode($jobData);
